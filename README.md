@@ -62,7 +62,7 @@ The growing demand for halal cosmetic products has exposed significant challenge
 
 ## 4. Citing HaCKG
 
-Please cite our [paper](https://ieeexplore.ieee.org/abstract/document/10283810) if you find *Literal* useful in your work:
+Please cite our [paper](https://ieeexplore.ieee.org/abstract/document/10283810) if you find *HaCKG* useful in your work:
 ```
 @Article{Hoang2023,
   author  = {Van Thuy Hoang and Thanh Sang Nguyen and Sangmyeong Lee and Jooho Lee and Luong Vuong Nguyen and O-Joun Lee},
