@@ -1,0 +1,1139 @@
+2025-01-09 21:48:40,482 - root - INFO - Namespace(aggregation_type='gcn', alpha=0.1, conv_dim=16, conv_dim_list='[32, 32, 32, 32, 32, 32, 32, 32, 32]', data_dir='data/', data_name='Balance_800', device='cuda:0', embed_dim=30, epoch_data_rate=1, evaluate_every=1, evaluation_file='outputs/evaluation.xlsx', evaluation_row=0, exp_name='run', fine_tuning_batch_size=1024, fine_tuning_l2loss_lambda=1e-05, fine_tuning_neg_rate=3, fine_tuning_print_every=500, kg_l2loss_lambda=1e-05, kg_print_every=500, lamda=0.5, laplacian_type='random-walk', lr=0.0001, mess_dropout=0.1, mess_dropout_list='[0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]', milestone_score=0.5, mlp_hidden_dim=64, n_conv_layers=2, n_epoch=500, n_mlp_layers=2, num_lit_dim=6, pre_training_batch_size=1024, pre_training_neg_rate=3, prediction_dict_file='disease_dict.pickle', pretrain_embedding_dir='data/pretrain/', pretrain_model_path='trained_model/LiteralKG/Balance_800/embed-dim30_relation-dim30_gcn_n-layers2_gat30_conv16_bs1024_numTrue_txtFalse_lr0.0001_dropout0.1_pretrain0_v5/run/pre-training_model_epoch96.pth', relation_dim=30, save_dir='trained_model/LiteralKG/Balance_800/embed-dim30_relation-dim30_gcn_n-layers2_gat30_conv16_bs1024_numTrue_txtFalse_lr0.0001_dropout0.1_pretrain0_v5/run/', scale_gat_dim=30, seed=2022, stopping_steps=10, test_batch_size=2048, test_neg_rate=1, total_ent=1000, total_rel=100, train_data_rate=0.8, txt_lit_dim=30, use_num_lit=True, use_parallel_gpu=False, use_pretrain=0, use_residual=False, use_txt_lit=False)
+2025-01-09 21:48:53,765 - root - INFO - Total training heads:           124494
+2025-01-09 21:48:53,765 - root - INFO - Total training tails:           124974
+2025-01-09 21:48:53,765 - root - INFO - Total entities:        124974
+2025-01-09 21:48:53,766 - root - INFO - n_relations:       7
+2025-01-09 21:48:53,766 - root - INFO - n_h_list:          144315
+2025-01-09 21:48:53,766 - root - INFO - n_t_list:          144315
+2025-01-09 21:48:53,766 - root - INFO - n_r_list:          144315
+2025-01-09 21:48:53,766 - root - INFO - n_prediction_training:        703
+2025-01-09 21:48:53,767 - root - INFO - n_prediction_train:        562
+2025-01-09 21:48:53,767 - root - INFO - n_prediction_validate:        141
+2025-01-09 21:48:53,767 - root - INFO - n_prediction_testing:         2366
+2025-01-09 21:48:53,767 - root - INFO - n_pre_training:        144315
+2025-01-09 21:48:53,919 - root - INFO - LiteralKG(
+  (entity_embed): Embedding(124974, 30)
+  (relation_embed): Embedding(8, 30)
+  (linear_gat): Linear(in_features=62, out_features=30, bias=True)
+  (gat_activation): LeakyReLU(negative_slope=0.01)
+  (aggregator_layers): ModuleList(
+    (0): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (activation): LeakyReLU(negative_slope=0.01)
+      (layer_normalize): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (linear): Linear(in_features=30, out_features=16, bias=True)
+    )
+    (1): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (activation): LeakyReLU(negative_slope=0.01)
+      (layer_normalize): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (linear): Linear(in_features=16, out_features=16, bias=True)
+    )
+  )
+  (emb_num_lit): Gate(
+    (g): Linear(in_features=36, out_features=30, bias=True)
+    (gate_ent): Linear(in_features=30, out_features=30, bias=False)
+    (gate_lit): Linear(in_features=6, out_features=30, bias=False)
+  )
+  (fc1): Linear(in_features=60, out_features=32, bias=True)
+  (norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc2): Linear(in_features=32, out_features=16, bias=True)
+  (norm2): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc3): Linear(in_features=16, out_features=1, bias=True)
+)
+2025-01-09 21:48:55,448 - root - INFO - Update Attention: Epoch 0001 | Total Time 0.0s
+2025-01-09 21:48:55,449 - root - INFO - Pre-training: Epoch 0001/0500 Total Iter 0007 | Total Time 1.5s | Iter Mean Loss 0.7118
+2025-01-09 21:48:55,472 - root - INFO - Save pre-training model on epoch 0001!
+2025-01-09 21:48:56,007 - root - INFO - Update Attention: Epoch 0002 | Total Time 0.0s
+2025-01-09 21:48:56,008 - root - INFO - Pre-training: Epoch 0002/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6673
+2025-01-09 21:48:56,033 - root - INFO - Save pre-training model on epoch 0002!
+2025-01-09 21:48:56,561 - root - INFO - Update Attention: Epoch 0003 | Total Time 0.0s
+2025-01-09 21:48:56,561 - root - INFO - Pre-training: Epoch 0003/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6623
+2025-01-09 21:48:56,585 - root - INFO - Save pre-training model on epoch 0003!
+2025-01-09 21:48:57,122 - root - INFO - Update Attention: Epoch 0004 | Total Time 0.0s
+2025-01-09 21:48:57,123 - root - INFO - Pre-training: Epoch 0004/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6582
+2025-01-09 21:48:57,145 - root - INFO - Save pre-training model on epoch 0004!
+2025-01-09 21:48:57,686 - root - INFO - Update Attention: Epoch 0005 | Total Time 0.0s
+2025-01-09 21:48:57,687 - root - INFO - Pre-training: Epoch 0005/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6554
+2025-01-09 21:48:57,711 - root - INFO - Save pre-training model on epoch 0005!
+2025-01-09 21:48:58,250 - root - INFO - Update Attention: Epoch 0006 | Total Time 0.0s
+2025-01-09 21:48:58,250 - root - INFO - Pre-training: Epoch 0006/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6481
+2025-01-09 21:48:58,275 - root - INFO - Save pre-training model on epoch 0006!
+2025-01-09 21:48:58,816 - root - INFO - Update Attention: Epoch 0007 | Total Time 0.0s
+2025-01-09 21:48:58,816 - root - INFO - Pre-training: Epoch 0007/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6484
+2025-01-09 21:48:59,392 - root - INFO - Update Attention: Epoch 0008 | Total Time 0.0s
+2025-01-09 21:48:59,393 - root - INFO - Pre-training: Epoch 0008/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.6404
+2025-01-09 21:48:59,417 - root - INFO - Save pre-training model on epoch 0008!
+2025-01-09 21:48:59,987 - root - INFO - Update Attention: Epoch 0009 | Total Time 0.0s
+2025-01-09 21:48:59,987 - root - INFO - Pre-training: Epoch 0009/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.6313
+2025-01-09 21:49:00,014 - root - INFO - Save pre-training model on epoch 0009!
+2025-01-09 21:49:00,566 - root - INFO - Update Attention: Epoch 0010 | Total Time 0.0s
+2025-01-09 21:49:00,566 - root - INFO - Pre-training: Epoch 0010/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6262
+2025-01-09 21:49:01,446 - root - INFO - Save pre-training model on epoch 0010!
+2025-01-09 21:49:01,977 - root - INFO - Update Attention: Epoch 0011 | Total Time 0.0s
+2025-01-09 21:49:01,977 - root - INFO - Pre-training: Epoch 0011/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6149
+2025-01-09 21:49:02,004 - root - INFO - Save pre-training model on epoch 0011!
+2025-01-09 21:49:02,541 - root - INFO - Update Attention: Epoch 0012 | Total Time 0.0s
+2025-01-09 21:49:02,541 - root - INFO - Pre-training: Epoch 0012/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6155
+2025-01-09 21:49:03,079 - root - INFO - Update Attention: Epoch 0013 | Total Time 0.0s
+2025-01-09 21:49:03,079 - root - INFO - Pre-training: Epoch 0013/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6053
+2025-01-09 21:49:03,105 - root - INFO - Save pre-training model on epoch 0013!
+2025-01-09 21:49:03,640 - root - INFO - Update Attention: Epoch 0014 | Total Time 0.0s
+2025-01-09 21:49:03,641 - root - INFO - Pre-training: Epoch 0014/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.6017
+2025-01-09 21:49:03,678 - root - INFO - Save pre-training model on epoch 0014!
+2025-01-09 21:49:04,229 - root - INFO - Update Attention: Epoch 0015 | Total Time 0.0s
+2025-01-09 21:49:04,229 - root - INFO - Pre-training: Epoch 0015/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5916
+2025-01-09 21:49:04,256 - root - INFO - Save pre-training model on epoch 0015!
+2025-01-09 21:49:04,807 - root - INFO - Update Attention: Epoch 0016 | Total Time 0.0s
+2025-01-09 21:49:04,808 - root - INFO - Pre-training: Epoch 0016/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5811
+2025-01-09 21:49:04,829 - root - INFO - Save pre-training model on epoch 0016!
+2025-01-09 21:49:05,377 - root - INFO - Update Attention: Epoch 0017 | Total Time 0.0s
+2025-01-09 21:49:05,378 - root - INFO - Pre-training: Epoch 0017/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5787
+2025-01-09 21:49:05,412 - root - INFO - Save pre-training model on epoch 0017!
+2025-01-09 21:49:05,931 - root - INFO - Update Attention: Epoch 0018 | Total Time 0.0s
+2025-01-09 21:49:05,932 - root - INFO - Pre-training: Epoch 0018/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5562
+2025-01-09 21:49:05,953 - root - INFO - Save pre-training model on epoch 0018!
+2025-01-09 21:49:06,430 - root - INFO - Update Attention: Epoch 0019 | Total Time 0.0s
+2025-01-09 21:49:06,430 - root - INFO - Pre-training: Epoch 0019/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5582
+2025-01-09 21:49:06,890 - root - INFO - Update Attention: Epoch 0020 | Total Time 0.0s
+2025-01-09 21:49:06,891 - root - INFO - Pre-training: Epoch 0020/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5453
+2025-01-09 21:49:06,914 - root - INFO - Save pre-training model on epoch 0020!
+2025-01-09 21:49:07,373 - root - INFO - Update Attention: Epoch 0021 | Total Time 0.0s
+2025-01-09 21:49:07,374 - root - INFO - Pre-training: Epoch 0021/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5404
+2025-01-09 21:49:07,395 - root - INFO - Save pre-training model on epoch 0021!
+2025-01-09 21:49:07,891 - root - INFO - Update Attention: Epoch 0022 | Total Time 0.0s
+2025-01-09 21:49:07,891 - root - INFO - Pre-training: Epoch 0022/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5255
+2025-01-09 21:49:07,914 - root - INFO - Save pre-training model on epoch 0022!
+2025-01-09 21:49:08,445 - root - INFO - Update Attention: Epoch 0023 | Total Time 0.0s
+2025-01-09 21:49:08,445 - root - INFO - Pre-training: Epoch 0023/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5181
+2025-01-09 21:49:08,467 - root - INFO - Save pre-training model on epoch 0023!
+2025-01-09 21:49:08,953 - root - INFO - Update Attention: Epoch 0024 | Total Time 0.0s
+2025-01-09 21:49:08,954 - root - INFO - Pre-training: Epoch 0024/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.5003
+2025-01-09 21:49:08,973 - root - INFO - Save pre-training model on epoch 0024!
+2025-01-09 21:49:09,476 - root - INFO - Update Attention: Epoch 0025 | Total Time 0.0s
+2025-01-09 21:49:09,477 - root - INFO - Pre-training: Epoch 0025/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4945
+2025-01-09 21:49:09,502 - root - INFO - Save pre-training model on epoch 0025!
+2025-01-09 21:49:10,013 - root - INFO - Update Attention: Epoch 0026 | Total Time 0.0s
+2025-01-09 21:49:10,013 - root - INFO - Pre-training: Epoch 0026/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4802
+2025-01-09 21:49:10,034 - root - INFO - Save pre-training model on epoch 0026!
+2025-01-09 21:49:10,561 - root - INFO - Update Attention: Epoch 0027 | Total Time 0.0s
+2025-01-09 21:49:10,561 - root - INFO - Pre-training: Epoch 0027/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4819
+2025-01-09 21:49:11,089 - root - INFO - Update Attention: Epoch 0028 | Total Time 0.0s
+2025-01-09 21:49:11,090 - root - INFO - Pre-training: Epoch 0028/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4783
+2025-01-09 21:49:11,111 - root - INFO - Save pre-training model on epoch 0028!
+2025-01-09 21:49:11,625 - root - INFO - Update Attention: Epoch 0029 | Total Time 0.0s
+2025-01-09 21:49:11,626 - root - INFO - Pre-training: Epoch 0029/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4613
+2025-01-09 21:49:11,648 - root - INFO - Save pre-training model on epoch 0029!
+2025-01-09 21:49:12,182 - root - INFO - Update Attention: Epoch 0030 | Total Time 0.0s
+2025-01-09 21:49:12,182 - root - INFO - Pre-training: Epoch 0030/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4441
+2025-01-09 21:49:12,206 - root - INFO - Save pre-training model on epoch 0030!
+2025-01-09 21:49:12,735 - root - INFO - Update Attention: Epoch 0031 | Total Time 0.0s
+2025-01-09 21:49:12,735 - root - INFO - Pre-training: Epoch 0031/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4417
+2025-01-09 21:49:12,757 - root - INFO - Save pre-training model on epoch 0031!
+2025-01-09 21:49:13,261 - root - INFO - Update Attention: Epoch 0032 | Total Time 0.0s
+2025-01-09 21:49:13,261 - root - INFO - Pre-training: Epoch 0032/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4269
+2025-01-09 21:49:13,282 - root - INFO - Save pre-training model on epoch 0032!
+2025-01-09 21:49:13,799 - root - INFO - Update Attention: Epoch 0033 | Total Time 0.0s
+2025-01-09 21:49:13,800 - root - INFO - Pre-training: Epoch 0033/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4130
+2025-01-09 21:49:13,821 - root - INFO - Save pre-training model on epoch 0033!
+2025-01-09 21:49:14,335 - root - INFO - Update Attention: Epoch 0034 | Total Time 0.0s
+2025-01-09 21:49:14,336 - root - INFO - Pre-training: Epoch 0034/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.4172
+2025-01-09 21:49:14,873 - root - INFO - Update Attention: Epoch 0035 | Total Time 0.0s
+2025-01-09 21:49:14,874 - root - INFO - Pre-training: Epoch 0035/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3957
+2025-01-09 21:49:14,896 - root - INFO - Save pre-training model on epoch 0035!
+2025-01-09 21:49:15,415 - root - INFO - Update Attention: Epoch 0036 | Total Time 0.0s
+2025-01-09 21:49:15,415 - root - INFO - Pre-training: Epoch 0036/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3994
+2025-01-09 21:49:15,952 - root - INFO - Update Attention: Epoch 0037 | Total Time 0.0s
+2025-01-09 21:49:15,952 - root - INFO - Pre-training: Epoch 0037/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3898
+2025-01-09 21:49:15,975 - root - INFO - Save pre-training model on epoch 0037!
+2025-01-09 21:49:16,496 - root - INFO - Update Attention: Epoch 0038 | Total Time 0.0s
+2025-01-09 21:49:16,496 - root - INFO - Pre-training: Epoch 0038/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3915
+2025-01-09 21:49:17,029 - root - INFO - Update Attention: Epoch 0039 | Total Time 0.0s
+2025-01-09 21:49:17,030 - root - INFO - Pre-training: Epoch 0039/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3833
+2025-01-09 21:49:17,144 - root - INFO - Save pre-training model on epoch 0039!
+2025-01-09 21:49:17,685 - root - INFO - Update Attention: Epoch 0040 | Total Time 0.0s
+2025-01-09 21:49:17,685 - root - INFO - Pre-training: Epoch 0040/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3698
+2025-01-09 21:49:17,706 - root - INFO - Save pre-training model on epoch 0040!
+2025-01-09 21:49:18,231 - root - INFO - Update Attention: Epoch 0041 | Total Time 0.0s
+2025-01-09 21:49:18,232 - root - INFO - Pre-training: Epoch 0041/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3712
+2025-01-09 21:49:18,746 - root - INFO - Update Attention: Epoch 0042 | Total Time 0.0s
+2025-01-09 21:49:18,746 - root - INFO - Pre-training: Epoch 0042/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3680
+2025-01-09 21:49:18,768 - root - INFO - Save pre-training model on epoch 0042!
+2025-01-09 21:49:19,273 - root - INFO - Update Attention: Epoch 0043 | Total Time 0.0s
+2025-01-09 21:49:19,273 - root - INFO - Pre-training: Epoch 0043/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3637
+2025-01-09 21:49:19,294 - root - INFO - Save pre-training model on epoch 0043!
+2025-01-09 21:49:19,812 - root - INFO - Update Attention: Epoch 0044 | Total Time 0.0s
+2025-01-09 21:49:19,812 - root - INFO - Pre-training: Epoch 0044/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3558
+2025-01-09 21:49:19,834 - root - INFO - Save pre-training model on epoch 0044!
+2025-01-09 21:49:20,342 - root - INFO - Update Attention: Epoch 0045 | Total Time 0.0s
+2025-01-09 21:49:20,342 - root - INFO - Pre-training: Epoch 0045/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3364
+2025-01-09 21:49:20,364 - root - INFO - Save pre-training model on epoch 0045!
+2025-01-09 21:49:20,873 - root - INFO - Update Attention: Epoch 0046 | Total Time 0.0s
+2025-01-09 21:49:20,874 - root - INFO - Pre-training: Epoch 0046/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3301
+2025-01-09 21:49:20,895 - root - INFO - Save pre-training model on epoch 0046!
+2025-01-09 21:49:21,402 - root - INFO - Update Attention: Epoch 0047 | Total Time 0.0s
+2025-01-09 21:49:21,402 - root - INFO - Pre-training: Epoch 0047/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3343
+2025-01-09 21:49:21,914 - root - INFO - Update Attention: Epoch 0048 | Total Time 0.0s
+2025-01-09 21:49:21,915 - root - INFO - Pre-training: Epoch 0048/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3375
+2025-01-09 21:49:22,447 - root - INFO - Update Attention: Epoch 0049 | Total Time 0.0s
+2025-01-09 21:49:22,448 - root - INFO - Pre-training: Epoch 0049/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3220
+2025-01-09 21:49:22,472 - root - INFO - Save pre-training model on epoch 0049!
+2025-01-09 21:49:23,003 - root - INFO - Update Attention: Epoch 0050 | Total Time 0.0s
+2025-01-09 21:49:23,004 - root - INFO - Pre-training: Epoch 0050/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3053
+2025-01-09 21:49:23,026 - root - INFO - Save pre-training model on epoch 0050!
+2025-01-09 21:49:23,549 - root - INFO - Update Attention: Epoch 0051 | Total Time 0.0s
+2025-01-09 21:49:23,550 - root - INFO - Pre-training: Epoch 0051/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3190
+2025-01-09 21:49:24,098 - root - INFO - Update Attention: Epoch 0052 | Total Time 0.0s
+2025-01-09 21:49:24,099 - root - INFO - Pre-training: Epoch 0052/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3178
+2025-01-09 21:49:24,662 - root - INFO - Update Attention: Epoch 0053 | Total Time 0.0s
+2025-01-09 21:49:24,662 - root - INFO - Pre-training: Epoch 0053/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.3003
+2025-01-09 21:49:24,689 - root - INFO - Save pre-training model on epoch 0053!
+2025-01-09 21:49:25,210 - root - INFO - Update Attention: Epoch 0054 | Total Time 0.0s
+2025-01-09 21:49:25,211 - root - INFO - Pre-training: Epoch 0054/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3137
+2025-01-09 21:49:25,702 - root - INFO - Update Attention: Epoch 0055 | Total Time 0.0s
+2025-01-09 21:49:25,702 - root - INFO - Pre-training: Epoch 0055/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2892
+2025-01-09 21:49:25,725 - root - INFO - Save pre-training model on epoch 0055!
+2025-01-09 21:49:26,226 - root - INFO - Update Attention: Epoch 0056 | Total Time 0.0s
+2025-01-09 21:49:26,615 - root - INFO - Pre-training: Epoch 0056/0500 Total Iter 0007 | Total Time 0.9s | Iter Mean Loss 0.2913
+2025-01-09 21:49:27,091 - root - INFO - Update Attention: Epoch 0057 | Total Time 0.0s
+2025-01-09 21:49:27,091 - root - INFO - Pre-training: Epoch 0057/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.3023
+2025-01-09 21:49:27,594 - root - INFO - Update Attention: Epoch 0058 | Total Time 0.0s
+2025-01-09 21:49:27,595 - root - INFO - Pre-training: Epoch 0058/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2890
+2025-01-09 21:49:27,617 - root - INFO - Save pre-training model on epoch 0058!
+2025-01-09 21:49:28,137 - root - INFO - Update Attention: Epoch 0059 | Total Time 0.0s
+2025-01-09 21:49:28,137 - root - INFO - Pre-training: Epoch 0059/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2862
+2025-01-09 21:49:28,159 - root - INFO - Save pre-training model on epoch 0059!
+2025-01-09 21:49:28,670 - root - INFO - Update Attention: Epoch 0060 | Total Time 0.0s
+2025-01-09 21:49:28,670 - root - INFO - Pre-training: Epoch 0060/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2741
+2025-01-09 21:49:28,691 - root - INFO - Save pre-training model on epoch 0060!
+2025-01-09 21:49:29,210 - root - INFO - Update Attention: Epoch 0061 | Total Time 0.0s
+2025-01-09 21:49:29,210 - root - INFO - Pre-training: Epoch 0061/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2881
+2025-01-09 21:49:29,727 - root - INFO - Update Attention: Epoch 0062 | Total Time 0.0s
+2025-01-09 21:49:29,727 - root - INFO - Pre-training: Epoch 0062/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2734
+2025-01-09 21:49:29,749 - root - INFO - Save pre-training model on epoch 0062!
+2025-01-09 21:49:30,274 - root - INFO - Update Attention: Epoch 0063 | Total Time 0.0s
+2025-01-09 21:49:30,275 - root - INFO - Pre-training: Epoch 0063/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2882
+2025-01-09 21:49:30,801 - root - INFO - Update Attention: Epoch 0064 | Total Time 0.0s
+2025-01-09 21:49:30,801 - root - INFO - Pre-training: Epoch 0064/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2669
+2025-01-09 21:49:30,823 - root - INFO - Save pre-training model on epoch 0064!
+2025-01-09 21:49:31,374 - root - INFO - Update Attention: Epoch 0065 | Total Time 0.0s
+2025-01-09 21:49:31,375 - root - INFO - Pre-training: Epoch 0065/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2625
+2025-01-09 21:49:31,401 - root - INFO - Save pre-training model on epoch 0065!
+2025-01-09 21:49:31,931 - root - INFO - Update Attention: Epoch 0066 | Total Time 0.0s
+2025-01-09 21:49:31,932 - root - INFO - Pre-training: Epoch 0066/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2662
+2025-01-09 21:49:32,449 - root - INFO - Update Attention: Epoch 0067 | Total Time 0.0s
+2025-01-09 21:49:32,449 - root - INFO - Pre-training: Epoch 0067/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2679
+2025-01-09 21:49:32,961 - root - INFO - Update Attention: Epoch 0068 | Total Time 0.0s
+2025-01-09 21:49:32,961 - root - INFO - Pre-training: Epoch 0068/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2655
+2025-01-09 21:49:33,478 - root - INFO - Update Attention: Epoch 0069 | Total Time 0.0s
+2025-01-09 21:49:33,478 - root - INFO - Pre-training: Epoch 0069/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2573
+2025-01-09 21:49:33,500 - root - INFO - Save pre-training model on epoch 0069!
+2025-01-09 21:49:34,028 - root - INFO - Update Attention: Epoch 0070 | Total Time 0.0s
+2025-01-09 21:49:34,029 - root - INFO - Pre-training: Epoch 0070/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2575
+2025-01-09 21:49:34,562 - root - INFO - Update Attention: Epoch 0071 | Total Time 0.0s
+2025-01-09 21:49:34,563 - root - INFO - Pre-training: Epoch 0071/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2524
+2025-01-09 21:49:34,587 - root - INFO - Save pre-training model on epoch 0071!
+2025-01-09 21:49:35,135 - root - INFO - Update Attention: Epoch 0072 | Total Time 0.0s
+2025-01-09 21:49:35,135 - root - INFO - Pre-training: Epoch 0072/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2383
+2025-01-09 21:49:35,159 - root - INFO - Save pre-training model on epoch 0072!
+2025-01-09 21:49:35,726 - root - INFO - Update Attention: Epoch 0073 | Total Time 0.0s
+2025-01-09 21:49:35,726 - root - INFO - Pre-training: Epoch 0073/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.2447
+2025-01-09 21:49:36,264 - root - INFO - Update Attention: Epoch 0074 | Total Time 0.0s
+2025-01-09 21:49:36,264 - root - INFO - Pre-training: Epoch 0074/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2472
+2025-01-09 21:49:36,793 - root - INFO - Update Attention: Epoch 0075 | Total Time 0.0s
+2025-01-09 21:49:36,793 - root - INFO - Pre-training: Epoch 0075/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2417
+2025-01-09 21:49:37,309 - root - INFO - Update Attention: Epoch 0076 | Total Time 0.0s
+2025-01-09 21:49:37,310 - root - INFO - Pre-training: Epoch 0076/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2407
+2025-01-09 21:49:37,803 - root - INFO - Update Attention: Epoch 0077 | Total Time 0.0s
+2025-01-09 21:49:37,804 - root - INFO - Pre-training: Epoch 0077/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2447
+2025-01-09 21:49:38,284 - root - INFO - Update Attention: Epoch 0078 | Total Time 0.0s
+2025-01-09 21:49:38,285 - root - INFO - Pre-training: Epoch 0078/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2388
+2025-01-09 21:49:38,795 - root - INFO - Update Attention: Epoch 0079 | Total Time 0.0s
+2025-01-09 21:49:38,795 - root - INFO - Pre-training: Epoch 0079/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2360
+2025-01-09 21:49:38,818 - root - INFO - Save pre-training model on epoch 0079!
+2025-01-09 21:49:39,337 - root - INFO - Update Attention: Epoch 0080 | Total Time 0.0s
+2025-01-09 21:49:39,338 - root - INFO - Pre-training: Epoch 0080/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2268
+2025-01-09 21:49:39,359 - root - INFO - Save pre-training model on epoch 0080!
+2025-01-09 21:49:39,866 - root - INFO - Update Attention: Epoch 0081 | Total Time 0.0s
+2025-01-09 21:49:39,867 - root - INFO - Pre-training: Epoch 0081/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2302
+2025-01-09 21:49:40,450 - root - INFO - Update Attention: Epoch 0082 | Total Time 0.0s
+2025-01-09 21:49:40,451 - root - INFO - Pre-training: Epoch 0082/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.2398
+2025-01-09 21:49:41,028 - root - INFO - Update Attention: Epoch 0083 | Total Time 0.0s
+2025-01-09 21:49:41,028 - root - INFO - Pre-training: Epoch 0083/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.2293
+2025-01-09 21:49:41,576 - root - INFO - Update Attention: Epoch 0084 | Total Time 0.0s
+2025-01-09 21:49:41,577 - root - INFO - Pre-training: Epoch 0084/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2228
+2025-01-09 21:49:41,600 - root - INFO - Save pre-training model on epoch 0084!
+2025-01-09 21:49:42,108 - root - INFO - Update Attention: Epoch 0085 | Total Time 0.0s
+2025-01-09 21:49:42,108 - root - INFO - Pre-training: Epoch 0085/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2193
+2025-01-09 21:49:42,129 - root - INFO - Save pre-training model on epoch 0085!
+2025-01-09 21:49:42,627 - root - INFO - Update Attention: Epoch 0086 | Total Time 0.0s
+2025-01-09 21:49:42,627 - root - INFO - Pre-training: Epoch 0086/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2232
+2025-01-09 21:49:43,119 - root - INFO - Update Attention: Epoch 0087 | Total Time 0.0s
+2025-01-09 21:49:43,119 - root - INFO - Pre-training: Epoch 0087/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2122
+2025-01-09 21:49:43,143 - root - INFO - Save pre-training model on epoch 0087!
+2025-01-09 21:49:43,630 - root - INFO - Update Attention: Epoch 0088 | Total Time 0.0s
+2025-01-09 21:49:43,630 - root - INFO - Pre-training: Epoch 0088/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2209
+2025-01-09 21:49:44,125 - root - INFO - Update Attention: Epoch 0089 | Total Time 0.0s
+2025-01-09 21:49:44,126 - root - INFO - Pre-training: Epoch 0089/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2127
+2025-01-09 21:49:44,632 - root - INFO - Update Attention: Epoch 0090 | Total Time 0.0s
+2025-01-09 21:49:44,633 - root - INFO - Pre-training: Epoch 0090/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2246
+2025-01-09 21:49:45,153 - root - INFO - Update Attention: Epoch 0091 | Total Time 0.0s
+2025-01-09 21:49:45,154 - root - INFO - Pre-training: Epoch 0091/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2143
+2025-01-09 21:49:45,659 - root - INFO - Update Attention: Epoch 0092 | Total Time 0.0s
+2025-01-09 21:49:45,659 - root - INFO - Pre-training: Epoch 0092/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2117
+2025-01-09 21:49:45,681 - root - INFO - Save pre-training model on epoch 0092!
+2025-01-09 21:49:46,205 - root - INFO - Update Attention: Epoch 0093 | Total Time 0.0s
+2025-01-09 21:49:46,206 - root - INFO - Pre-training: Epoch 0093/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2026
+2025-01-09 21:49:46,228 - root - INFO - Save pre-training model on epoch 0093!
+2025-01-09 21:49:46,741 - root - INFO - Update Attention: Epoch 0094 | Total Time 0.0s
+2025-01-09 21:49:46,741 - root - INFO - Pre-training: Epoch 0094/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2156
+2025-01-09 21:49:47,269 - root - INFO - Update Attention: Epoch 0095 | Total Time 0.0s
+2025-01-09 21:49:47,270 - root - INFO - Pre-training: Epoch 0095/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2146
+2025-01-09 21:49:47,801 - root - INFO - Update Attention: Epoch 0096 | Total Time 0.0s
+2025-01-09 21:49:47,802 - root - INFO - Pre-training: Epoch 0096/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2027
+2025-01-09 21:49:48,338 - root - INFO - Update Attention: Epoch 0097 | Total Time 0.0s
+2025-01-09 21:49:48,338 - root - INFO - Pre-training: Epoch 0097/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2041
+2025-01-09 21:49:48,887 - root - INFO - Update Attention: Epoch 0098 | Total Time 0.0s
+2025-01-09 21:49:48,888 - root - INFO - Pre-training: Epoch 0098/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2014
+2025-01-09 21:49:48,910 - root - INFO - Save pre-training model on epoch 0098!
+2025-01-09 21:49:49,481 - root - INFO - Update Attention: Epoch 0099 | Total Time 0.0s
+2025-01-09 21:49:49,482 - root - INFO - Pre-training: Epoch 0099/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.2003
+2025-01-09 21:49:49,507 - root - INFO - Save pre-training model on epoch 0099!
+2025-01-09 21:49:50,054 - root - INFO - Update Attention: Epoch 0100 | Total Time 0.0s
+2025-01-09 21:49:50,054 - root - INFO - Pre-training: Epoch 0100/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2111
+2025-01-09 21:49:50,604 - root - INFO - Update Attention: Epoch 0101 | Total Time 0.0s
+2025-01-09 21:49:50,604 - root - INFO - Pre-training: Epoch 0101/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2022
+2025-01-09 21:49:51,129 - root - INFO - Update Attention: Epoch 0102 | Total Time 0.0s
+2025-01-09 21:49:51,129 - root - INFO - Pre-training: Epoch 0102/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1887
+2025-01-09 21:49:51,151 - root - INFO - Save pre-training model on epoch 0102!
+2025-01-09 21:49:51,668 - root - INFO - Update Attention: Epoch 0103 | Total Time 0.0s
+2025-01-09 21:49:51,668 - root - INFO - Pre-training: Epoch 0103/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1978
+2025-01-09 21:49:52,183 - root - INFO - Update Attention: Epoch 0104 | Total Time 0.0s
+2025-01-09 21:49:52,184 - root - INFO - Pre-training: Epoch 0104/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1994
+2025-01-09 21:49:52,713 - root - INFO - Update Attention: Epoch 0105 | Total Time 0.0s
+2025-01-09 21:49:52,713 - root - INFO - Pre-training: Epoch 0105/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1922
+2025-01-09 21:49:53,236 - root - INFO - Update Attention: Epoch 0106 | Total Time 0.0s
+2025-01-09 21:49:53,236 - root - INFO - Pre-training: Epoch 0106/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2028
+2025-01-09 21:49:53,744 - root - INFO - Update Attention: Epoch 0107 | Total Time 0.0s
+2025-01-09 21:49:53,745 - root - INFO - Pre-training: Epoch 0107/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.2101
+2025-01-09 21:49:54,271 - root - INFO - Update Attention: Epoch 0108 | Total Time 0.0s
+2025-01-09 21:49:54,271 - root - INFO - Pre-training: Epoch 0108/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1873
+2025-01-09 21:49:54,293 - root - INFO - Save pre-training model on epoch 0108!
+2025-01-09 21:49:54,844 - root - INFO - Update Attention: Epoch 0109 | Total Time 0.0s
+2025-01-09 21:49:54,844 - root - INFO - Pre-training: Epoch 0109/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1907
+2025-01-09 21:49:55,368 - root - INFO - Update Attention: Epoch 0110 | Total Time 0.0s
+2025-01-09 21:49:55,369 - root - INFO - Pre-training: Epoch 0110/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1815
+2025-01-09 21:49:55,389 - root - INFO - Save pre-training model on epoch 0110!
+2025-01-09 21:49:55,930 - root - INFO - Update Attention: Epoch 0111 | Total Time 0.0s
+2025-01-09 21:49:55,931 - root - INFO - Pre-training: Epoch 0111/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1939
+2025-01-09 21:49:56,497 - root - INFO - Update Attention: Epoch 0112 | Total Time 0.0s
+2025-01-09 21:49:56,498 - root - INFO - Pre-training: Epoch 0112/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1826
+2025-01-09 21:49:57,041 - root - INFO - Update Attention: Epoch 0113 | Total Time 0.0s
+2025-01-09 21:49:57,041 - root - INFO - Pre-training: Epoch 0113/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1938
+2025-01-09 21:49:57,581 - root - INFO - Update Attention: Epoch 0114 | Total Time 0.0s
+2025-01-09 21:49:57,581 - root - INFO - Pre-training: Epoch 0114/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1735
+2025-01-09 21:49:57,603 - root - INFO - Save pre-training model on epoch 0114!
+2025-01-09 21:49:58,105 - root - INFO - Update Attention: Epoch 0115 | Total Time 0.0s
+2025-01-09 21:49:58,106 - root - INFO - Pre-training: Epoch 0115/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1798
+2025-01-09 21:49:58,614 - root - INFO - Update Attention: Epoch 0116 | Total Time 0.0s
+2025-01-09 21:49:58,614 - root - INFO - Pre-training: Epoch 0116/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1824
+2025-01-09 21:49:59,163 - root - INFO - Update Attention: Epoch 0117 | Total Time 0.0s
+2025-01-09 21:49:59,163 - root - INFO - Pre-training: Epoch 0117/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1748
+2025-01-09 21:49:59,690 - root - INFO - Update Attention: Epoch 0118 | Total Time 0.0s
+2025-01-09 21:49:59,691 - root - INFO - Pre-training: Epoch 0118/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1697
+2025-01-09 21:49:59,711 - root - INFO - Save pre-training model on epoch 0118!
+2025-01-09 21:50:00,264 - root - INFO - Update Attention: Epoch 0119 | Total Time 0.0s
+2025-01-09 21:50:00,264 - root - INFO - Pre-training: Epoch 0119/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1823
+2025-01-09 21:50:00,831 - root - INFO - Update Attention: Epoch 0120 | Total Time 0.0s
+2025-01-09 21:50:00,831 - root - INFO - Pre-training: Epoch 0120/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1818
+2025-01-09 21:50:01,405 - root - INFO - Update Attention: Epoch 0121 | Total Time 0.0s
+2025-01-09 21:50:01,405 - root - INFO - Pre-training: Epoch 0121/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1743
+2025-01-09 21:50:02,004 - root - INFO - Update Attention: Epoch 0122 | Total Time 0.0s
+2025-01-09 21:50:02,004 - root - INFO - Pre-training: Epoch 0122/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1778
+2025-01-09 21:50:02,563 - root - INFO - Update Attention: Epoch 0123 | Total Time 0.0s
+2025-01-09 21:50:02,563 - root - INFO - Pre-training: Epoch 0123/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1740
+2025-01-09 21:50:03,092 - root - INFO - Update Attention: Epoch 0124 | Total Time 0.0s
+2025-01-09 21:50:03,092 - root - INFO - Pre-training: Epoch 0124/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1748
+2025-01-09 21:50:03,649 - root - INFO - Update Attention: Epoch 0125 | Total Time 0.0s
+2025-01-09 21:50:03,649 - root - INFO - Pre-training: Epoch 0125/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1741
+2025-01-09 21:50:04,207 - root - INFO - Update Attention: Epoch 0126 | Total Time 0.0s
+2025-01-09 21:50:04,208 - root - INFO - Pre-training: Epoch 0126/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1697
+2025-01-09 21:50:04,737 - root - INFO - Update Attention: Epoch 0127 | Total Time 0.0s
+2025-01-09 21:50:04,738 - root - INFO - Pre-training: Epoch 0127/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1587
+2025-01-09 21:50:04,763 - root - INFO - Save pre-training model on epoch 0127!
+2025-01-09 21:50:05,309 - root - INFO - Update Attention: Epoch 0128 | Total Time 0.0s
+2025-01-09 21:50:05,309 - root - INFO - Pre-training: Epoch 0128/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1698
+2025-01-09 21:50:05,827 - root - INFO - Update Attention: Epoch 0129 | Total Time 0.0s
+2025-01-09 21:50:05,827 - root - INFO - Pre-training: Epoch 0129/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1709
+2025-01-09 21:50:06,335 - root - INFO - Update Attention: Epoch 0130 | Total Time 0.0s
+2025-01-09 21:50:06,336 - root - INFO - Pre-training: Epoch 0130/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1650
+2025-01-09 21:50:06,861 - root - INFO - Update Attention: Epoch 0131 | Total Time 0.0s
+2025-01-09 21:50:06,861 - root - INFO - Pre-training: Epoch 0131/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1655
+2025-01-09 21:50:07,404 - root - INFO - Update Attention: Epoch 0132 | Total Time 0.0s
+2025-01-09 21:50:07,405 - root - INFO - Pre-training: Epoch 0132/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1613
+2025-01-09 21:50:07,957 - root - INFO - Update Attention: Epoch 0133 | Total Time 0.0s
+2025-01-09 21:50:07,958 - root - INFO - Pre-training: Epoch 0133/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1711
+2025-01-09 21:50:08,420 - root - INFO - Update Attention: Epoch 0134 | Total Time 0.0s
+2025-01-09 21:50:08,420 - root - INFO - Pre-training: Epoch 0134/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1658
+2025-01-09 21:50:08,879 - root - INFO - Update Attention: Epoch 0135 | Total Time 0.0s
+2025-01-09 21:50:08,880 - root - INFO - Pre-training: Epoch 0135/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1563
+2025-01-09 21:50:08,901 - root - INFO - Save pre-training model on epoch 0135!
+2025-01-09 21:50:09,368 - root - INFO - Update Attention: Epoch 0136 | Total Time 0.0s
+2025-01-09 21:50:09,368 - root - INFO - Pre-training: Epoch 0136/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1599
+2025-01-09 21:50:09,830 - root - INFO - Update Attention: Epoch 0137 | Total Time 0.0s
+2025-01-09 21:50:09,830 - root - INFO - Pre-training: Epoch 0137/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1738
+2025-01-09 21:50:10,287 - root - INFO - Update Attention: Epoch 0138 | Total Time 0.0s
+2025-01-09 21:50:10,287 - root - INFO - Pre-training: Epoch 0138/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1542
+2025-01-09 21:50:10,307 - root - INFO - Save pre-training model on epoch 0138!
+2025-01-09 21:50:10,753 - root - INFO - Update Attention: Epoch 0139 | Total Time 0.0s
+2025-01-09 21:50:10,753 - root - INFO - Pre-training: Epoch 0139/0500 Total Iter 0007 | Total Time 0.4s | Iter Mean Loss 0.1602
+2025-01-09 21:50:11,204 - root - INFO - Update Attention: Epoch 0140 | Total Time 0.0s
+2025-01-09 21:50:11,204 - root - INFO - Pre-training: Epoch 0140/0500 Total Iter 0007 | Total Time 0.4s | Iter Mean Loss 0.1581
+2025-01-09 21:50:11,666 - root - INFO - Update Attention: Epoch 0141 | Total Time 0.0s
+2025-01-09 21:50:11,667 - root - INFO - Pre-training: Epoch 0141/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1501
+2025-01-09 21:50:11,688 - root - INFO - Save pre-training model on epoch 0141!
+2025-01-09 21:50:12,174 - root - INFO - Update Attention: Epoch 0142 | Total Time 0.0s
+2025-01-09 21:50:12,174 - root - INFO - Pre-training: Epoch 0142/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1545
+2025-01-09 21:50:12,657 - root - INFO - Update Attention: Epoch 0143 | Total Time 0.0s
+2025-01-09 21:50:12,657 - root - INFO - Pre-training: Epoch 0143/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1459
+2025-01-09 21:50:12,679 - root - INFO - Save pre-training model on epoch 0143!
+2025-01-09 21:50:13,163 - root - INFO - Update Attention: Epoch 0144 | Total Time 0.0s
+2025-01-09 21:50:13,163 - root - INFO - Pre-training: Epoch 0144/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1648
+2025-01-09 21:50:13,669 - root - INFO - Update Attention: Epoch 0145 | Total Time 0.0s
+2025-01-09 21:50:13,669 - root - INFO - Pre-training: Epoch 0145/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1713
+2025-01-09 21:50:14,228 - root - INFO - Update Attention: Epoch 0146 | Total Time 0.0s
+2025-01-09 21:50:14,228 - root - INFO - Pre-training: Epoch 0146/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1667
+2025-01-09 21:50:14,859 - root - INFO - Update Attention: Epoch 0147 | Total Time 0.0s
+2025-01-09 21:50:14,859 - root - INFO - Pre-training: Epoch 0147/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1423
+2025-01-09 21:50:14,885 - root - INFO - Save pre-training model on epoch 0147!
+2025-01-09 21:50:15,478 - root - INFO - Update Attention: Epoch 0148 | Total Time 0.0s
+2025-01-09 21:50:15,478 - root - INFO - Pre-training: Epoch 0148/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1431
+2025-01-09 21:50:16,061 - root - INFO - Update Attention: Epoch 0149 | Total Time 0.0s
+2025-01-09 21:50:16,062 - root - INFO - Pre-training: Epoch 0149/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1591
+2025-01-09 21:50:16,654 - root - INFO - Update Attention: Epoch 0150 | Total Time 0.0s
+2025-01-09 21:50:16,654 - root - INFO - Pre-training: Epoch 0150/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1453
+2025-01-09 21:50:17,197 - root - INFO - Update Attention: Epoch 0151 | Total Time 0.0s
+2025-01-09 21:50:17,198 - root - INFO - Pre-training: Epoch 0151/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1538
+2025-01-09 21:50:17,714 - root - INFO - Update Attention: Epoch 0152 | Total Time 0.0s
+2025-01-09 21:50:17,714 - root - INFO - Pre-training: Epoch 0152/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1581
+2025-01-09 21:50:18,228 - root - INFO - Update Attention: Epoch 0153 | Total Time 0.0s
+2025-01-09 21:50:18,228 - root - INFO - Pre-training: Epoch 0153/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1576
+2025-01-09 21:50:18,731 - root - INFO - Update Attention: Epoch 0154 | Total Time 0.0s
+2025-01-09 21:50:18,731 - root - INFO - Pre-training: Epoch 0154/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1389
+2025-01-09 21:50:18,753 - root - INFO - Save pre-training model on epoch 0154!
+2025-01-09 21:50:19,270 - root - INFO - Update Attention: Epoch 0155 | Total Time 0.0s
+2025-01-09 21:50:19,270 - root - INFO - Pre-training: Epoch 0155/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1677
+2025-01-09 21:50:19,800 - root - INFO - Update Attention: Epoch 0156 | Total Time 0.0s
+2025-01-09 21:50:19,801 - root - INFO - Pre-training: Epoch 0156/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1572
+2025-01-09 21:50:20,323 - root - INFO - Update Attention: Epoch 0157 | Total Time 0.0s
+2025-01-09 21:50:20,323 - root - INFO - Pre-training: Epoch 0157/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1392
+2025-01-09 21:50:20,848 - root - INFO - Update Attention: Epoch 0158 | Total Time 0.0s
+2025-01-09 21:50:20,848 - root - INFO - Pre-training: Epoch 0158/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1461
+2025-01-09 21:50:21,359 - root - INFO - Update Attention: Epoch 0159 | Total Time 0.0s
+2025-01-09 21:50:21,359 - root - INFO - Pre-training: Epoch 0159/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1447
+2025-01-09 21:50:21,863 - root - INFO - Update Attention: Epoch 0160 | Total Time 0.0s
+2025-01-09 21:50:21,864 - root - INFO - Pre-training: Epoch 0160/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1331
+2025-01-09 21:50:21,884 - root - INFO - Save pre-training model on epoch 0160!
+2025-01-09 21:50:22,420 - root - INFO - Update Attention: Epoch 0161 | Total Time 0.0s
+2025-01-09 21:50:22,421 - root - INFO - Pre-training: Epoch 0161/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1502
+2025-01-09 21:50:22,968 - root - INFO - Update Attention: Epoch 0162 | Total Time 0.0s
+2025-01-09 21:50:22,968 - root - INFO - Pre-training: Epoch 0162/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1581
+2025-01-09 21:50:23,517 - root - INFO - Update Attention: Epoch 0163 | Total Time 0.0s
+2025-01-09 21:50:23,518 - root - INFO - Pre-training: Epoch 0163/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1499
+2025-01-09 21:50:24,049 - root - INFO - Update Attention: Epoch 0164 | Total Time 0.0s
+2025-01-09 21:50:24,049 - root - INFO - Pre-training: Epoch 0164/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1430
+2025-01-09 21:50:24,579 - root - INFO - Update Attention: Epoch 0165 | Total Time 0.0s
+2025-01-09 21:50:24,579 - root - INFO - Pre-training: Epoch 0165/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1365
+2025-01-09 21:50:25,123 - root - INFO - Update Attention: Epoch 0166 | Total Time 0.0s
+2025-01-09 21:50:25,123 - root - INFO - Pre-training: Epoch 0166/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1340
+2025-01-09 21:50:25,678 - root - INFO - Update Attention: Epoch 0167 | Total Time 0.0s
+2025-01-09 21:50:25,679 - root - INFO - Pre-training: Epoch 0167/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1340
+2025-01-09 21:50:26,202 - root - INFO - Update Attention: Epoch 0168 | Total Time 0.0s
+2025-01-09 21:50:26,203 - root - INFO - Pre-training: Epoch 0168/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1423
+2025-01-09 21:50:26,750 - root - INFO - Update Attention: Epoch 0169 | Total Time 0.0s
+2025-01-09 21:50:26,751 - root - INFO - Pre-training: Epoch 0169/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1413
+2025-01-09 21:50:27,275 - root - INFO - Update Attention: Epoch 0170 | Total Time 0.0s
+2025-01-09 21:50:27,275 - root - INFO - Pre-training: Epoch 0170/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1385
+2025-01-09 21:50:27,793 - root - INFO - Update Attention: Epoch 0171 | Total Time 0.0s
+2025-01-09 21:50:27,793 - root - INFO - Pre-training: Epoch 0171/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1402
+2025-01-09 21:50:28,329 - root - INFO - Update Attention: Epoch 0172 | Total Time 0.0s
+2025-01-09 21:50:28,329 - root - INFO - Pre-training: Epoch 0172/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1278
+2025-01-09 21:50:28,362 - root - INFO - Save pre-training model on epoch 0172!
+2025-01-09 21:50:28,918 - root - INFO - Update Attention: Epoch 0173 | Total Time 0.0s
+2025-01-09 21:50:28,918 - root - INFO - Pre-training: Epoch 0173/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1328
+2025-01-09 21:50:29,504 - root - INFO - Update Attention: Epoch 0174 | Total Time 0.0s
+2025-01-09 21:50:29,504 - root - INFO - Pre-training: Epoch 0174/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1303
+2025-01-09 21:50:30,046 - root - INFO - Update Attention: Epoch 0175 | Total Time 0.0s
+2025-01-09 21:50:30,046 - root - INFO - Pre-training: Epoch 0175/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1554
+2025-01-09 21:50:30,597 - root - INFO - Update Attention: Epoch 0176 | Total Time 0.0s
+2025-01-09 21:50:30,598 - root - INFO - Pre-training: Epoch 0176/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1366
+2025-01-09 21:50:31,161 - root - INFO - Update Attention: Epoch 0177 | Total Time 0.0s
+2025-01-09 21:50:31,161 - root - INFO - Pre-training: Epoch 0177/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1285
+2025-01-09 21:50:31,702 - root - INFO - Update Attention: Epoch 0178 | Total Time 0.0s
+2025-01-09 21:50:31,702 - root - INFO - Pre-training: Epoch 0178/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1374
+2025-01-09 21:50:32,237 - root - INFO - Update Attention: Epoch 0179 | Total Time 0.0s
+2025-01-09 21:50:32,237 - root - INFO - Pre-training: Epoch 0179/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1464
+2025-01-09 21:50:32,799 - root - INFO - Update Attention: Epoch 0180 | Total Time 0.0s
+2025-01-09 21:50:32,799 - root - INFO - Pre-training: Epoch 0180/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1386
+2025-01-09 21:50:33,374 - root - INFO - Update Attention: Epoch 0181 | Total Time 0.0s
+2025-01-09 21:50:33,374 - root - INFO - Pre-training: Epoch 0181/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1285
+2025-01-09 21:50:33,943 - root - INFO - Update Attention: Epoch 0182 | Total Time 0.0s
+2025-01-09 21:50:33,943 - root - INFO - Pre-training: Epoch 0182/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1449
+2025-01-09 21:50:34,512 - root - INFO - Update Attention: Epoch 0183 | Total Time 0.0s
+2025-01-09 21:50:34,512 - root - INFO - Pre-training: Epoch 0183/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1316
+2025-01-09 21:50:35,080 - root - INFO - Update Attention: Epoch 0184 | Total Time 0.0s
+2025-01-09 21:50:35,080 - root - INFO - Pre-training: Epoch 0184/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1259
+2025-01-09 21:50:35,104 - root - INFO - Save pre-training model on epoch 0184!
+2025-01-09 21:50:35,657 - root - INFO - Update Attention: Epoch 0185 | Total Time 0.0s
+2025-01-09 21:50:35,658 - root - INFO - Pre-training: Epoch 0185/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1291
+2025-01-09 21:50:36,221 - root - INFO - Update Attention: Epoch 0186 | Total Time 0.0s
+2025-01-09 21:50:36,221 - root - INFO - Pre-training: Epoch 0186/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1174
+2025-01-09 21:50:36,247 - root - INFO - Save pre-training model on epoch 0186!
+2025-01-09 21:50:36,782 - root - INFO - Update Attention: Epoch 0187 | Total Time 0.0s
+2025-01-09 21:50:36,782 - root - INFO - Pre-training: Epoch 0187/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1319
+2025-01-09 21:50:37,323 - root - INFO - Update Attention: Epoch 0188 | Total Time 0.0s
+2025-01-09 21:50:37,323 - root - INFO - Pre-training: Epoch 0188/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1310
+2025-01-09 21:50:37,862 - root - INFO - Update Attention: Epoch 0189 | Total Time 0.0s
+2025-01-09 21:50:37,862 - root - INFO - Pre-training: Epoch 0189/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1320
+2025-01-09 21:50:38,420 - root - INFO - Update Attention: Epoch 0190 | Total Time 0.0s
+2025-01-09 21:50:38,420 - root - INFO - Pre-training: Epoch 0190/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1207
+2025-01-09 21:50:38,975 - root - INFO - Update Attention: Epoch 0191 | Total Time 0.0s
+2025-01-09 21:50:38,975 - root - INFO - Pre-training: Epoch 0191/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1293
+2025-01-09 21:50:39,535 - root - INFO - Update Attention: Epoch 0192 | Total Time 0.0s
+2025-01-09 21:50:39,536 - root - INFO - Pre-training: Epoch 0192/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1309
+2025-01-09 21:50:40,118 - root - INFO - Update Attention: Epoch 0193 | Total Time 0.0s
+2025-01-09 21:50:40,118 - root - INFO - Pre-training: Epoch 0193/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1261
+2025-01-09 21:50:40,672 - root - INFO - Update Attention: Epoch 0194 | Total Time 0.0s
+2025-01-09 21:50:40,672 - root - INFO - Pre-training: Epoch 0194/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1236
+2025-01-09 21:50:41,203 - root - INFO - Update Attention: Epoch 0195 | Total Time 0.0s
+2025-01-09 21:50:41,203 - root - INFO - Pre-training: Epoch 0195/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1291
+2025-01-09 21:50:41,743 - root - INFO - Update Attention: Epoch 0196 | Total Time 0.0s
+2025-01-09 21:50:41,744 - root - INFO - Pre-training: Epoch 0196/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1307
+2025-01-09 21:50:42,319 - root - INFO - Update Attention: Epoch 0197 | Total Time 0.0s
+2025-01-09 21:50:42,319 - root - INFO - Pre-training: Epoch 0197/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1250
+2025-01-09 21:50:42,895 - root - INFO - Update Attention: Epoch 0198 | Total Time 0.0s
+2025-01-09 21:50:42,895 - root - INFO - Pre-training: Epoch 0198/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1296
+2025-01-09 21:50:43,395 - root - INFO - Update Attention: Epoch 0199 | Total Time 0.0s
+2025-01-09 21:50:43,395 - root - INFO - Pre-training: Epoch 0199/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1175
+2025-01-09 21:50:43,920 - root - INFO - Update Attention: Epoch 0200 | Total Time 0.0s
+2025-01-09 21:50:43,920 - root - INFO - Pre-training: Epoch 0200/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1215
+2025-01-09 21:50:44,457 - root - INFO - Update Attention: Epoch 0201 | Total Time 0.0s
+2025-01-09 21:50:44,458 - root - INFO - Pre-training: Epoch 0201/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1337
+2025-01-09 21:50:44,978 - root - INFO - Update Attention: Epoch 0202 | Total Time 0.0s
+2025-01-09 21:50:44,979 - root - INFO - Pre-training: Epoch 0202/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1188
+2025-01-09 21:50:45,494 - root - INFO - Update Attention: Epoch 0203 | Total Time 0.0s
+2025-01-09 21:50:45,494 - root - INFO - Pre-training: Epoch 0203/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1273
+2025-01-09 21:50:46,024 - root - INFO - Update Attention: Epoch 0204 | Total Time 0.0s
+2025-01-09 21:50:46,024 - root - INFO - Pre-training: Epoch 0204/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1309
+2025-01-09 21:50:46,567 - root - INFO - Update Attention: Epoch 0205 | Total Time 0.0s
+2025-01-09 21:50:46,567 - root - INFO - Pre-training: Epoch 0205/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1309
+2025-01-09 21:50:47,091 - root - INFO - Update Attention: Epoch 0206 | Total Time 0.0s
+2025-01-09 21:50:47,091 - root - INFO - Pre-training: Epoch 0206/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1370
+2025-01-09 21:50:47,628 - root - INFO - Update Attention: Epoch 0207 | Total Time 0.0s
+2025-01-09 21:50:47,629 - root - INFO - Pre-training: Epoch 0207/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1281
+2025-01-09 21:50:48,156 - root - INFO - Update Attention: Epoch 0208 | Total Time 0.0s
+2025-01-09 21:50:48,156 - root - INFO - Pre-training: Epoch 0208/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1221
+2025-01-09 21:50:48,700 - root - INFO - Update Attention: Epoch 0209 | Total Time 0.0s
+2025-01-09 21:50:48,700 - root - INFO - Pre-training: Epoch 0209/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1209
+2025-01-09 21:50:49,221 - root - INFO - Update Attention: Epoch 0210 | Total Time 0.0s
+2025-01-09 21:50:49,221 - root - INFO - Pre-training: Epoch 0210/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1212
+2025-01-09 21:50:49,730 - root - INFO - Update Attention: Epoch 0211 | Total Time 0.0s
+2025-01-09 21:50:49,731 - root - INFO - Pre-training: Epoch 0211/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1115
+2025-01-09 21:50:49,756 - root - INFO - Save pre-training model on epoch 0211!
+2025-01-09 21:50:50,278 - root - INFO - Update Attention: Epoch 0212 | Total Time 0.0s
+2025-01-09 21:50:50,279 - root - INFO - Pre-training: Epoch 0212/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1269
+2025-01-09 21:50:50,786 - root - INFO - Update Attention: Epoch 0213 | Total Time 0.0s
+2025-01-09 21:50:50,786 - root - INFO - Pre-training: Epoch 0213/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1143
+2025-01-09 21:50:51,297 - root - INFO - Update Attention: Epoch 0214 | Total Time 0.0s
+2025-01-09 21:50:51,297 - root - INFO - Pre-training: Epoch 0214/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1097
+2025-01-09 21:50:51,321 - root - INFO - Save pre-training model on epoch 0214!
+2025-01-09 21:50:51,818 - root - INFO - Update Attention: Epoch 0215 | Total Time 0.0s
+2025-01-09 21:50:51,819 - root - INFO - Pre-training: Epoch 0215/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1345
+2025-01-09 21:50:52,359 - root - INFO - Update Attention: Epoch 0216 | Total Time 0.0s
+2025-01-09 21:50:52,359 - root - INFO - Pre-training: Epoch 0216/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1305
+2025-01-09 21:50:52,921 - root - INFO - Update Attention: Epoch 0217 | Total Time 0.0s
+2025-01-09 21:50:52,922 - root - INFO - Pre-training: Epoch 0217/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1209
+2025-01-09 21:50:53,498 - root - INFO - Update Attention: Epoch 0218 | Total Time 0.0s
+2025-01-09 21:50:53,498 - root - INFO - Pre-training: Epoch 0218/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1154
+2025-01-09 21:50:54,038 - root - INFO - Update Attention: Epoch 0219 | Total Time 0.0s
+2025-01-09 21:50:54,039 - root - INFO - Pre-training: Epoch 0219/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1211
+2025-01-09 21:50:54,574 - root - INFO - Update Attention: Epoch 0220 | Total Time 0.0s
+2025-01-09 21:50:54,574 - root - INFO - Pre-training: Epoch 0220/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1140
+2025-01-09 21:50:55,133 - root - INFO - Update Attention: Epoch 0221 | Total Time 0.0s
+2025-01-09 21:50:55,133 - root - INFO - Pre-training: Epoch 0221/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1131
+2025-01-09 21:50:55,666 - root - INFO - Update Attention: Epoch 0222 | Total Time 0.0s
+2025-01-09 21:50:55,666 - root - INFO - Pre-training: Epoch 0222/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1273
+2025-01-09 21:50:56,181 - root - INFO - Update Attention: Epoch 0223 | Total Time 0.0s
+2025-01-09 21:50:56,182 - root - INFO - Pre-training: Epoch 0223/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1211
+2025-01-09 21:50:56,708 - root - INFO - Update Attention: Epoch 0224 | Total Time 0.0s
+2025-01-09 21:50:56,708 - root - INFO - Pre-training: Epoch 0224/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1262
+2025-01-09 21:50:57,242 - root - INFO - Update Attention: Epoch 0225 | Total Time 0.0s
+2025-01-09 21:50:57,242 - root - INFO - Pre-training: Epoch 0225/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1199
+2025-01-09 21:50:57,724 - root - INFO - Update Attention: Epoch 0226 | Total Time 0.0s
+2025-01-09 21:50:57,724 - root - INFO - Pre-training: Epoch 0226/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1199
+2025-01-09 21:50:58,264 - root - INFO - Update Attention: Epoch 0227 | Total Time 0.0s
+2025-01-09 21:50:58,264 - root - INFO - Pre-training: Epoch 0227/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1187
+2025-01-09 21:50:58,799 - root - INFO - Update Attention: Epoch 0228 | Total Time 0.0s
+2025-01-09 21:50:58,799 - root - INFO - Pre-training: Epoch 0228/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1170
+2025-01-09 21:50:59,320 - root - INFO - Update Attention: Epoch 0229 | Total Time 0.0s
+2025-01-09 21:50:59,320 - root - INFO - Pre-training: Epoch 0229/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1021
+2025-01-09 21:50:59,346 - root - INFO - Save pre-training model on epoch 0229!
+2025-01-09 21:50:59,864 - root - INFO - Update Attention: Epoch 0230 | Total Time 0.0s
+2025-01-09 21:50:59,865 - root - INFO - Pre-training: Epoch 0230/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1198
+2025-01-09 21:51:00,405 - root - INFO - Update Attention: Epoch 0231 | Total Time 0.0s
+2025-01-09 21:51:00,405 - root - INFO - Pre-training: Epoch 0231/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1181
+2025-01-09 21:51:00,957 - root - INFO - Update Attention: Epoch 0232 | Total Time 0.0s
+2025-01-09 21:51:00,958 - root - INFO - Pre-training: Epoch 0232/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1060
+2025-01-09 21:51:01,479 - root - INFO - Update Attention: Epoch 0233 | Total Time 0.0s
+2025-01-09 21:51:01,480 - root - INFO - Pre-training: Epoch 0233/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1206
+2025-01-09 21:51:02,051 - root - INFO - Update Attention: Epoch 0234 | Total Time 0.0s
+2025-01-09 21:51:02,051 - root - INFO - Pre-training: Epoch 0234/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1097
+2025-01-09 21:51:02,566 - root - INFO - Update Attention: Epoch 0235 | Total Time 0.0s
+2025-01-09 21:51:02,567 - root - INFO - Pre-training: Epoch 0235/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1069
+2025-01-09 21:51:03,090 - root - INFO - Update Attention: Epoch 0236 | Total Time 0.0s
+2025-01-09 21:51:03,091 - root - INFO - Pre-training: Epoch 0236/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1118
+2025-01-09 21:51:03,600 - root - INFO - Update Attention: Epoch 0237 | Total Time 0.0s
+2025-01-09 21:51:03,600 - root - INFO - Pre-training: Epoch 0237/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1080
+2025-01-09 21:51:04,104 - root - INFO - Update Attention: Epoch 0238 | Total Time 0.0s
+2025-01-09 21:51:04,104 - root - INFO - Pre-training: Epoch 0238/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1182
+2025-01-09 21:51:04,618 - root - INFO - Update Attention: Epoch 0239 | Total Time 0.0s
+2025-01-09 21:51:04,618 - root - INFO - Pre-training: Epoch 0239/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1130
+2025-01-09 21:51:05,133 - root - INFO - Update Attention: Epoch 0240 | Total Time 0.0s
+2025-01-09 21:51:05,134 - root - INFO - Pre-training: Epoch 0240/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1260
+2025-01-09 21:51:05,654 - root - INFO - Update Attention: Epoch 0241 | Total Time 0.0s
+2025-01-09 21:51:05,655 - root - INFO - Pre-training: Epoch 0241/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1100
+2025-01-09 21:51:06,201 - root - INFO - Update Attention: Epoch 0242 | Total Time 0.0s
+2025-01-09 21:51:06,201 - root - INFO - Pre-training: Epoch 0242/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1124
+2025-01-09 21:51:06,776 - root - INFO - Update Attention: Epoch 0243 | Total Time 0.0s
+2025-01-09 21:51:06,777 - root - INFO - Pre-training: Epoch 0243/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1171
+2025-01-09 21:51:07,304 - root - INFO - Update Attention: Epoch 0244 | Total Time 0.0s
+2025-01-09 21:51:07,304 - root - INFO - Pre-training: Epoch 0244/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1125
+2025-01-09 21:51:07,878 - root - INFO - Update Attention: Epoch 0245 | Total Time 0.0s
+2025-01-09 21:51:07,879 - root - INFO - Pre-training: Epoch 0245/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1245
+2025-01-09 21:51:08,435 - root - INFO - Update Attention: Epoch 0246 | Total Time 0.0s
+2025-01-09 21:51:08,436 - root - INFO - Pre-training: Epoch 0246/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1300
+2025-01-09 21:51:08,992 - root - INFO - Update Attention: Epoch 0247 | Total Time 0.0s
+2025-01-09 21:51:08,992 - root - INFO - Pre-training: Epoch 0247/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1030
+2025-01-09 21:51:09,542 - root - INFO - Update Attention: Epoch 0248 | Total Time 0.0s
+2025-01-09 21:51:09,542 - root - INFO - Pre-training: Epoch 0248/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1229
+2025-01-09 21:51:10,101 - root - INFO - Update Attention: Epoch 0249 | Total Time 0.0s
+2025-01-09 21:51:10,101 - root - INFO - Pre-training: Epoch 0249/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1113
+2025-01-09 21:51:10,659 - root - INFO - Update Attention: Epoch 0250 | Total Time 0.0s
+2025-01-09 21:51:10,660 - root - INFO - Pre-training: Epoch 0250/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1144
+2025-01-09 21:51:11,225 - root - INFO - Update Attention: Epoch 0251 | Total Time 0.0s
+2025-01-09 21:51:11,226 - root - INFO - Pre-training: Epoch 0251/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1101
+2025-01-09 21:51:11,775 - root - INFO - Update Attention: Epoch 0252 | Total Time 0.0s
+2025-01-09 21:51:11,775 - root - INFO - Pre-training: Epoch 0252/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1069
+2025-01-09 21:51:12,273 - root - INFO - Update Attention: Epoch 0253 | Total Time 0.0s
+2025-01-09 21:51:12,273 - root - INFO - Pre-training: Epoch 0253/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1136
+2025-01-09 21:51:12,757 - root - INFO - Update Attention: Epoch 0254 | Total Time 0.0s
+2025-01-09 21:51:12,757 - root - INFO - Pre-training: Epoch 0254/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1087
+2025-01-09 21:51:13,216 - root - INFO - Update Attention: Epoch 0255 | Total Time 0.0s
+2025-01-09 21:51:13,216 - root - INFO - Pre-training: Epoch 0255/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1077
+2025-01-09 21:51:13,702 - root - INFO - Update Attention: Epoch 0256 | Total Time 0.0s
+2025-01-09 21:51:13,702 - root - INFO - Pre-training: Epoch 0256/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1050
+2025-01-09 21:51:14,222 - root - INFO - Update Attention: Epoch 0257 | Total Time 0.0s
+2025-01-09 21:51:14,223 - root - INFO - Pre-training: Epoch 0257/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1077
+2025-01-09 21:51:14,757 - root - INFO - Update Attention: Epoch 0258 | Total Time 0.0s
+2025-01-09 21:51:14,757 - root - INFO - Pre-training: Epoch 0258/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1086
+2025-01-09 21:51:15,252 - root - INFO - Update Attention: Epoch 0259 | Total Time 0.0s
+2025-01-09 21:51:15,253 - root - INFO - Pre-training: Epoch 0259/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1102
+2025-01-09 21:51:15,753 - root - INFO - Update Attention: Epoch 0260 | Total Time 0.0s
+2025-01-09 21:51:15,753 - root - INFO - Pre-training: Epoch 0260/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1102
+2025-01-09 21:51:16,255 - root - INFO - Update Attention: Epoch 0261 | Total Time 0.0s
+2025-01-09 21:51:16,255 - root - INFO - Pre-training: Epoch 0261/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1063
+2025-01-09 21:51:16,762 - root - INFO - Update Attention: Epoch 0262 | Total Time 0.0s
+2025-01-09 21:51:16,762 - root - INFO - Pre-training: Epoch 0262/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1072
+2025-01-09 21:51:17,280 - root - INFO - Update Attention: Epoch 0263 | Total Time 0.0s
+2025-01-09 21:51:17,280 - root - INFO - Pre-training: Epoch 0263/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1207
+2025-01-09 21:51:17,777 - root - INFO - Update Attention: Epoch 0264 | Total Time 0.0s
+2025-01-09 21:51:17,778 - root - INFO - Pre-training: Epoch 0264/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1133
+2025-01-09 21:51:18,270 - root - INFO - Update Attention: Epoch 0265 | Total Time 0.0s
+2025-01-09 21:51:18,270 - root - INFO - Pre-training: Epoch 0265/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1094
+2025-01-09 21:51:18,758 - root - INFO - Update Attention: Epoch 0266 | Total Time 0.0s
+2025-01-09 21:51:18,759 - root - INFO - Pre-training: Epoch 0266/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1025
+2025-01-09 21:51:19,257 - root - INFO - Update Attention: Epoch 0267 | Total Time 0.0s
+2025-01-09 21:51:19,257 - root - INFO - Pre-training: Epoch 0267/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1231
+2025-01-09 21:51:19,769 - root - INFO - Update Attention: Epoch 0268 | Total Time 0.0s
+2025-01-09 21:51:19,770 - root - INFO - Pre-training: Epoch 0268/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1023
+2025-01-09 21:51:20,286 - root - INFO - Update Attention: Epoch 0269 | Total Time 0.0s
+2025-01-09 21:51:20,287 - root - INFO - Pre-training: Epoch 0269/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1095
+2025-01-09 21:51:20,800 - root - INFO - Update Attention: Epoch 0270 | Total Time 0.0s
+2025-01-09 21:51:20,800 - root - INFO - Pre-training: Epoch 0270/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1149
+2025-01-09 21:51:21,306 - root - INFO - Update Attention: Epoch 0271 | Total Time 0.0s
+2025-01-09 21:51:21,306 - root - INFO - Pre-training: Epoch 0271/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1068
+2025-01-09 21:51:21,820 - root - INFO - Update Attention: Epoch 0272 | Total Time 0.0s
+2025-01-09 21:51:21,820 - root - INFO - Pre-training: Epoch 0272/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1152
+2025-01-09 21:51:22,346 - root - INFO - Update Attention: Epoch 0273 | Total Time 0.0s
+2025-01-09 21:51:22,346 - root - INFO - Pre-training: Epoch 0273/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1058
+2025-01-09 21:51:22,861 - root - INFO - Update Attention: Epoch 0274 | Total Time 0.0s
+2025-01-09 21:51:22,862 - root - INFO - Pre-training: Epoch 0274/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1139
+2025-01-09 21:51:23,370 - root - INFO - Update Attention: Epoch 0275 | Total Time 0.0s
+2025-01-09 21:51:23,371 - root - INFO - Pre-training: Epoch 0275/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1147
+2025-01-09 21:51:23,887 - root - INFO - Update Attention: Epoch 0276 | Total Time 0.0s
+2025-01-09 21:51:23,888 - root - INFO - Pre-training: Epoch 0276/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1135
+2025-01-09 21:51:24,419 - root - INFO - Update Attention: Epoch 0277 | Total Time 0.0s
+2025-01-09 21:51:24,419 - root - INFO - Pre-training: Epoch 0277/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1026
+2025-01-09 21:51:24,941 - root - INFO - Update Attention: Epoch 0278 | Total Time 0.0s
+2025-01-09 21:51:24,941 - root - INFO - Pre-training: Epoch 0278/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1106
+2025-01-09 21:51:25,495 - root - INFO - Update Attention: Epoch 0279 | Total Time 0.0s
+2025-01-09 21:51:25,495 - root - INFO - Pre-training: Epoch 0279/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1035
+2025-01-09 21:51:26,030 - root - INFO - Update Attention: Epoch 0280 | Total Time 0.0s
+2025-01-09 21:51:26,031 - root - INFO - Pre-training: Epoch 0280/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0998
+2025-01-09 21:51:26,054 - root - INFO - Save pre-training model on epoch 0280!
+2025-01-09 21:51:26,582 - root - INFO - Update Attention: Epoch 0281 | Total Time 0.0s
+2025-01-09 21:51:26,582 - root - INFO - Pre-training: Epoch 0281/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1034
+2025-01-09 21:51:27,108 - root - INFO - Update Attention: Epoch 0282 | Total Time 0.0s
+2025-01-09 21:51:27,108 - root - INFO - Pre-training: Epoch 0282/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0999
+2025-01-09 21:51:27,637 - root - INFO - Update Attention: Epoch 0283 | Total Time 0.0s
+2025-01-09 21:51:27,637 - root - INFO - Pre-training: Epoch 0283/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1057
+2025-01-09 21:51:28,164 - root - INFO - Update Attention: Epoch 0284 | Total Time 0.0s
+2025-01-09 21:51:28,164 - root - INFO - Pre-training: Epoch 0284/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1117
+2025-01-09 21:51:28,689 - root - INFO - Update Attention: Epoch 0285 | Total Time 0.0s
+2025-01-09 21:51:28,689 - root - INFO - Pre-training: Epoch 0285/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1141
+2025-01-09 21:51:29,209 - root - INFO - Update Attention: Epoch 0286 | Total Time 0.0s
+2025-01-09 21:51:29,209 - root - INFO - Pre-training: Epoch 0286/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1072
+2025-01-09 21:51:29,753 - root - INFO - Update Attention: Epoch 0287 | Total Time 0.0s
+2025-01-09 21:51:29,754 - root - INFO - Pre-training: Epoch 0287/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0967
+2025-01-09 21:51:29,776 - root - INFO - Save pre-training model on epoch 0287!
+2025-01-09 21:51:30,289 - root - INFO - Update Attention: Epoch 0288 | Total Time 0.0s
+2025-01-09 21:51:30,289 - root - INFO - Pre-training: Epoch 0288/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1042
+2025-01-09 21:51:30,796 - root - INFO - Update Attention: Epoch 0289 | Total Time 0.0s
+2025-01-09 21:51:30,797 - root - INFO - Pre-training: Epoch 0289/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1151
+2025-01-09 21:51:31,311 - root - INFO - Update Attention: Epoch 0290 | Total Time 0.0s
+2025-01-09 21:51:31,311 - root - INFO - Pre-training: Epoch 0290/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0899
+2025-01-09 21:51:31,333 - root - INFO - Save pre-training model on epoch 0290!
+2025-01-09 21:51:31,839 - root - INFO - Update Attention: Epoch 0291 | Total Time 0.0s
+2025-01-09 21:51:31,839 - root - INFO - Pre-training: Epoch 0291/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1079
+2025-01-09 21:51:32,363 - root - INFO - Update Attention: Epoch 0292 | Total Time 0.0s
+2025-01-09 21:51:32,363 - root - INFO - Pre-training: Epoch 0292/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1049
+2025-01-09 21:51:32,885 - root - INFO - Update Attention: Epoch 0293 | Total Time 0.0s
+2025-01-09 21:51:32,886 - root - INFO - Pre-training: Epoch 0293/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1040
+2025-01-09 21:51:33,411 - root - INFO - Update Attention: Epoch 0294 | Total Time 0.0s
+2025-01-09 21:51:33,412 - root - INFO - Pre-training: Epoch 0294/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1013
+2025-01-09 21:51:33,937 - root - INFO - Update Attention: Epoch 0295 | Total Time 0.0s
+2025-01-09 21:51:33,937 - root - INFO - Pre-training: Epoch 0295/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1010
+2025-01-09 21:51:34,484 - root - INFO - Update Attention: Epoch 0296 | Total Time 0.0s
+2025-01-09 21:51:34,484 - root - INFO - Pre-training: Epoch 0296/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1012
+2025-01-09 21:51:35,047 - root - INFO - Update Attention: Epoch 0297 | Total Time 0.0s
+2025-01-09 21:51:35,047 - root - INFO - Pre-training: Epoch 0297/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1083
+2025-01-09 21:51:35,583 - root - INFO - Update Attention: Epoch 0298 | Total Time 0.0s
+2025-01-09 21:51:35,583 - root - INFO - Pre-training: Epoch 0298/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1021
+2025-01-09 21:51:36,098 - root - INFO - Update Attention: Epoch 0299 | Total Time 0.0s
+2025-01-09 21:51:36,098 - root - INFO - Pre-training: Epoch 0299/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1006
+2025-01-09 21:51:36,616 - root - INFO - Update Attention: Epoch 0300 | Total Time 0.0s
+2025-01-09 21:51:36,617 - root - INFO - Pre-training: Epoch 0300/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1155
+2025-01-09 21:51:37,133 - root - INFO - Update Attention: Epoch 0301 | Total Time 0.0s
+2025-01-09 21:51:37,133 - root - INFO - Pre-training: Epoch 0301/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1087
+2025-01-09 21:51:37,662 - root - INFO - Update Attention: Epoch 0302 | Total Time 0.0s
+2025-01-09 21:51:37,663 - root - INFO - Pre-training: Epoch 0302/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1156
+2025-01-09 21:51:38,181 - root - INFO - Update Attention: Epoch 0303 | Total Time 0.0s
+2025-01-09 21:51:38,181 - root - INFO - Pre-training: Epoch 0303/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1066
+2025-01-09 21:51:38,723 - root - INFO - Update Attention: Epoch 0304 | Total Time 0.0s
+2025-01-09 21:51:38,723 - root - INFO - Pre-training: Epoch 0304/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1070
+2025-01-09 21:51:39,268 - root - INFO - Update Attention: Epoch 0305 | Total Time 0.0s
+2025-01-09 21:51:39,268 - root - INFO - Pre-training: Epoch 0305/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1025
+2025-01-09 21:51:39,804 - root - INFO - Update Attention: Epoch 0306 | Total Time 0.0s
+2025-01-09 21:51:39,804 - root - INFO - Pre-training: Epoch 0306/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1062
+2025-01-09 21:51:40,334 - root - INFO - Update Attention: Epoch 0307 | Total Time 0.0s
+2025-01-09 21:51:40,335 - root - INFO - Pre-training: Epoch 0307/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0993
+2025-01-09 21:51:40,867 - root - INFO - Update Attention: Epoch 0308 | Total Time 0.0s
+2025-01-09 21:51:40,868 - root - INFO - Pre-training: Epoch 0308/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1026
+2025-01-09 21:51:41,395 - root - INFO - Update Attention: Epoch 0309 | Total Time 0.0s
+2025-01-09 21:51:41,396 - root - INFO - Pre-training: Epoch 0309/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1104
+2025-01-09 21:51:41,945 - root - INFO - Update Attention: Epoch 0310 | Total Time 0.0s
+2025-01-09 21:51:41,945 - root - INFO - Pre-training: Epoch 0310/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1015
+2025-01-09 21:51:42,472 - root - INFO - Update Attention: Epoch 0311 | Total Time 0.0s
+2025-01-09 21:51:42,473 - root - INFO - Pre-training: Epoch 0311/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1008
+2025-01-09 21:51:42,994 - root - INFO - Update Attention: Epoch 0312 | Total Time 0.0s
+2025-01-09 21:51:42,994 - root - INFO - Pre-training: Epoch 0312/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1054
+2025-01-09 21:51:43,513 - root - INFO - Update Attention: Epoch 0313 | Total Time 0.0s
+2025-01-09 21:51:43,514 - root - INFO - Pre-training: Epoch 0313/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0952
+2025-01-09 21:51:44,045 - root - INFO - Update Attention: Epoch 0314 | Total Time 0.0s
+2025-01-09 21:51:44,045 - root - INFO - Pre-training: Epoch 0314/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1123
+2025-01-09 21:51:44,576 - root - INFO - Update Attention: Epoch 0315 | Total Time 0.0s
+2025-01-09 21:51:44,576 - root - INFO - Pre-training: Epoch 0315/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0982
+2025-01-09 21:51:45,186 - root - INFO - Update Attention: Epoch 0316 | Total Time 0.0s
+2025-01-09 21:51:45,187 - root - INFO - Pre-training: Epoch 0316/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0963
+2025-01-09 21:51:45,737 - root - INFO - Update Attention: Epoch 0317 | Total Time 0.0s
+2025-01-09 21:51:45,738 - root - INFO - Pre-training: Epoch 0317/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1023
+2025-01-09 21:51:46,258 - root - INFO - Update Attention: Epoch 0318 | Total Time 0.0s
+2025-01-09 21:51:46,258 - root - INFO - Pre-training: Epoch 0318/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1000
+2025-01-09 21:51:46,793 - root - INFO - Update Attention: Epoch 0319 | Total Time 0.0s
+2025-01-09 21:51:46,794 - root - INFO - Pre-training: Epoch 0319/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1019
+2025-01-09 21:51:47,371 - root - INFO - Update Attention: Epoch 0320 | Total Time 0.0s
+2025-01-09 21:51:47,372 - root - INFO - Pre-training: Epoch 0320/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.1056
+2025-01-09 21:51:47,902 - root - INFO - Update Attention: Epoch 0321 | Total Time 0.0s
+2025-01-09 21:51:47,903 - root - INFO - Pre-training: Epoch 0321/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1067
+2025-01-09 21:51:48,433 - root - INFO - Update Attention: Epoch 0322 | Total Time 0.0s
+2025-01-09 21:51:48,433 - root - INFO - Pre-training: Epoch 0322/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1009
+2025-01-09 21:51:48,969 - root - INFO - Update Attention: Epoch 0323 | Total Time 0.0s
+2025-01-09 21:51:48,970 - root - INFO - Pre-training: Epoch 0323/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1016
+2025-01-09 21:51:49,502 - root - INFO - Update Attention: Epoch 0324 | Total Time 0.0s
+2025-01-09 21:51:49,502 - root - INFO - Pre-training: Epoch 0324/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1017
+2025-01-09 21:51:50,009 - root - INFO - Update Attention: Epoch 0325 | Total Time 0.0s
+2025-01-09 21:51:50,010 - root - INFO - Pre-training: Epoch 0325/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0905
+2025-01-09 21:51:50,496 - root - INFO - Update Attention: Epoch 0326 | Total Time 0.0s
+2025-01-09 21:51:50,496 - root - INFO - Pre-training: Epoch 0326/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0923
+2025-01-09 21:51:50,998 - root - INFO - Update Attention: Epoch 0327 | Total Time 0.0s
+2025-01-09 21:51:50,998 - root - INFO - Pre-training: Epoch 0327/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0953
+2025-01-09 21:51:51,539 - root - INFO - Update Attention: Epoch 0328 | Total Time 0.0s
+2025-01-09 21:51:51,540 - root - INFO - Pre-training: Epoch 0328/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0959
+2025-01-09 21:51:52,061 - root - INFO - Update Attention: Epoch 0329 | Total Time 0.0s
+2025-01-09 21:51:52,062 - root - INFO - Pre-training: Epoch 0329/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0968
+2025-01-09 21:51:52,591 - root - INFO - Update Attention: Epoch 0330 | Total Time 0.0s
+2025-01-09 21:51:52,591 - root - INFO - Pre-training: Epoch 0330/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0909
+2025-01-09 21:51:53,100 - root - INFO - Update Attention: Epoch 0331 | Total Time 0.0s
+2025-01-09 21:51:53,100 - root - INFO - Pre-training: Epoch 0331/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0979
+2025-01-09 21:51:53,613 - root - INFO - Update Attention: Epoch 0332 | Total Time 0.0s
+2025-01-09 21:51:53,613 - root - INFO - Pre-training: Epoch 0332/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0878
+2025-01-09 21:51:53,637 - root - INFO - Save pre-training model on epoch 0332!
+2025-01-09 21:51:54,168 - root - INFO - Update Attention: Epoch 0333 | Total Time 0.0s
+2025-01-09 21:51:54,168 - root - INFO - Pre-training: Epoch 0333/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1001
+2025-01-09 21:51:54,675 - root - INFO - Update Attention: Epoch 0334 | Total Time 0.0s
+2025-01-09 21:51:54,675 - root - INFO - Pre-training: Epoch 0334/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0911
+2025-01-09 21:51:55,186 - root - INFO - Update Attention: Epoch 0335 | Total Time 0.0s
+2025-01-09 21:51:55,187 - root - INFO - Pre-training: Epoch 0335/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0931
+2025-01-09 21:51:55,684 - root - INFO - Update Attention: Epoch 0336 | Total Time 0.0s
+2025-01-09 21:51:55,684 - root - INFO - Pre-training: Epoch 0336/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1029
+2025-01-09 21:51:56,190 - root - INFO - Update Attention: Epoch 0337 | Total Time 0.0s
+2025-01-09 21:51:56,191 - root - INFO - Pre-training: Epoch 0337/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0946
+2025-01-09 21:51:56,693 - root - INFO - Update Attention: Epoch 0338 | Total Time 0.0s
+2025-01-09 21:51:56,694 - root - INFO - Pre-training: Epoch 0338/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0969
+2025-01-09 21:51:57,214 - root - INFO - Update Attention: Epoch 0339 | Total Time 0.0s
+2025-01-09 21:51:57,214 - root - INFO - Pre-training: Epoch 0339/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0996
+2025-01-09 21:51:57,741 - root - INFO - Update Attention: Epoch 0340 | Total Time 0.0s
+2025-01-09 21:51:57,741 - root - INFO - Pre-training: Epoch 0340/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1060
+2025-01-09 21:51:58,267 - root - INFO - Update Attention: Epoch 0341 | Total Time 0.0s
+2025-01-09 21:51:58,268 - root - INFO - Pre-training: Epoch 0341/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1023
+2025-01-09 21:51:58,804 - root - INFO - Update Attention: Epoch 0342 | Total Time 0.0s
+2025-01-09 21:51:58,805 - root - INFO - Pre-training: Epoch 0342/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1019
+2025-01-09 21:51:59,344 - root - INFO - Update Attention: Epoch 0343 | Total Time 0.0s
+2025-01-09 21:51:59,344 - root - INFO - Pre-training: Epoch 0343/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0941
+2025-01-09 21:51:59,867 - root - INFO - Update Attention: Epoch 0344 | Total Time 0.0s
+2025-01-09 21:51:59,868 - root - INFO - Pre-training: Epoch 0344/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1034
+2025-01-09 21:52:00,395 - root - INFO - Update Attention: Epoch 0345 | Total Time 0.0s
+2025-01-09 21:52:00,396 - root - INFO - Pre-training: Epoch 0345/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0973
+2025-01-09 21:52:00,929 - root - INFO - Update Attention: Epoch 0346 | Total Time 0.0s
+2025-01-09 21:52:00,929 - root - INFO - Pre-training: Epoch 0346/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0969
+2025-01-09 21:52:01,443 - root - INFO - Update Attention: Epoch 0347 | Total Time 0.0s
+2025-01-09 21:52:01,443 - root - INFO - Pre-training: Epoch 0347/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1002
+2025-01-09 21:52:01,942 - root - INFO - Update Attention: Epoch 0348 | Total Time 0.0s
+2025-01-09 21:52:01,943 - root - INFO - Pre-training: Epoch 0348/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0883
+2025-01-09 21:52:02,447 - root - INFO - Update Attention: Epoch 0349 | Total Time 0.0s
+2025-01-09 21:52:02,447 - root - INFO - Pre-training: Epoch 0349/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0851
+2025-01-09 21:52:02,469 - root - INFO - Save pre-training model on epoch 0349!
+2025-01-09 21:52:02,963 - root - INFO - Update Attention: Epoch 0350 | Total Time 0.0s
+2025-01-09 21:52:02,964 - root - INFO - Pre-training: Epoch 0350/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0958
+2025-01-09 21:52:03,472 - root - INFO - Update Attention: Epoch 0351 | Total Time 0.0s
+2025-01-09 21:52:03,473 - root - INFO - Pre-training: Epoch 0351/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0941
+2025-01-09 21:52:04,001 - root - INFO - Update Attention: Epoch 0352 | Total Time 0.0s
+2025-01-09 21:52:04,001 - root - INFO - Pre-training: Epoch 0352/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1010
+2025-01-09 21:52:04,531 - root - INFO - Update Attention: Epoch 0353 | Total Time 0.0s
+2025-01-09 21:52:04,532 - root - INFO - Pre-training: Epoch 0353/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0894
+2025-01-09 21:52:05,132 - root - INFO - Update Attention: Epoch 0354 | Total Time 0.0s
+2025-01-09 21:52:05,133 - root - INFO - Pre-training: Epoch 0354/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0847
+2025-01-09 21:52:05,157 - root - INFO - Save pre-training model on epoch 0354!
+2025-01-09 21:52:05,689 - root - INFO - Update Attention: Epoch 0355 | Total Time 0.0s
+2025-01-09 21:52:05,690 - root - INFO - Pre-training: Epoch 0355/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0982
+2025-01-09 21:52:06,238 - root - INFO - Update Attention: Epoch 0356 | Total Time 0.0s
+2025-01-09 21:52:06,238 - root - INFO - Pre-training: Epoch 0356/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1024
+2025-01-09 21:52:06,773 - root - INFO - Update Attention: Epoch 0357 | Total Time 0.0s
+2025-01-09 21:52:06,774 - root - INFO - Pre-training: Epoch 0357/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0991
+2025-01-09 21:52:07,306 - root - INFO - Update Attention: Epoch 0358 | Total Time 0.0s
+2025-01-09 21:52:07,306 - root - INFO - Pre-training: Epoch 0358/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0974
+2025-01-09 21:52:07,815 - root - INFO - Update Attention: Epoch 0359 | Total Time 0.0s
+2025-01-09 21:52:07,816 - root - INFO - Pre-training: Epoch 0359/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0977
+2025-01-09 21:52:08,373 - root - INFO - Update Attention: Epoch 0360 | Total Time 0.0s
+2025-01-09 21:52:08,374 - root - INFO - Pre-training: Epoch 0360/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0969
+2025-01-09 21:52:08,899 - root - INFO - Update Attention: Epoch 0361 | Total Time 0.0s
+2025-01-09 21:52:08,899 - root - INFO - Pre-training: Epoch 0361/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0959
+2025-01-09 21:52:09,414 - root - INFO - Update Attention: Epoch 0362 | Total Time 0.0s
+2025-01-09 21:52:09,415 - root - INFO - Pre-training: Epoch 0362/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0921
+2025-01-09 21:52:09,934 - root - INFO - Update Attention: Epoch 0363 | Total Time 0.0s
+2025-01-09 21:52:09,935 - root - INFO - Pre-training: Epoch 0363/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0960
+2025-01-09 21:52:10,460 - root - INFO - Update Attention: Epoch 0364 | Total Time 0.0s
+2025-01-09 21:52:10,460 - root - INFO - Pre-training: Epoch 0364/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0816
+2025-01-09 21:52:10,481 - root - INFO - Save pre-training model on epoch 0364!
+2025-01-09 21:52:11,013 - root - INFO - Update Attention: Epoch 0365 | Total Time 0.0s
+2025-01-09 21:52:11,013 - root - INFO - Pre-training: Epoch 0365/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0922
+2025-01-09 21:52:11,560 - root - INFO - Update Attention: Epoch 0366 | Total Time 0.0s
+2025-01-09 21:52:11,561 - root - INFO - Pre-training: Epoch 0366/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0975
+2025-01-09 21:52:12,104 - root - INFO - Update Attention: Epoch 0367 | Total Time 0.0s
+2025-01-09 21:52:12,104 - root - INFO - Pre-training: Epoch 0367/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0942
+2025-01-09 21:52:12,653 - root - INFO - Update Attention: Epoch 0368 | Total Time 0.0s
+2025-01-09 21:52:12,653 - root - INFO - Pre-training: Epoch 0368/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0923
+2025-01-09 21:52:13,186 - root - INFO - Update Attention: Epoch 0369 | Total Time 0.0s
+2025-01-09 21:52:13,186 - root - INFO - Pre-training: Epoch 0369/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0863
+2025-01-09 21:52:13,740 - root - INFO - Update Attention: Epoch 0370 | Total Time 0.0s
+2025-01-09 21:52:13,740 - root - INFO - Pre-training: Epoch 0370/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0970
+2025-01-09 21:52:14,293 - root - INFO - Update Attention: Epoch 0371 | Total Time 0.0s
+2025-01-09 21:52:14,294 - root - INFO - Pre-training: Epoch 0371/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0981
+2025-01-09 21:52:14,825 - root - INFO - Update Attention: Epoch 0372 | Total Time 0.0s
+2025-01-09 21:52:14,825 - root - INFO - Pre-training: Epoch 0372/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0955
+2025-01-09 21:52:15,348 - root - INFO - Update Attention: Epoch 0373 | Total Time 0.0s
+2025-01-09 21:52:15,348 - root - INFO - Pre-training: Epoch 0373/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0988
+2025-01-09 21:52:15,850 - root - INFO - Update Attention: Epoch 0374 | Total Time 0.0s
+2025-01-09 21:52:15,850 - root - INFO - Pre-training: Epoch 0374/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0900
+2025-01-09 21:52:16,362 - root - INFO - Update Attention: Epoch 0375 | Total Time 0.0s
+2025-01-09 21:52:16,363 - root - INFO - Pre-training: Epoch 0375/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0949
+2025-01-09 21:52:16,896 - root - INFO - Update Attention: Epoch 0376 | Total Time 0.0s
+2025-01-09 21:52:16,897 - root - INFO - Pre-training: Epoch 0376/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0978
+2025-01-09 21:52:17,429 - root - INFO - Update Attention: Epoch 0377 | Total Time 0.0s
+2025-01-09 21:52:17,430 - root - INFO - Pre-training: Epoch 0377/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0953
+2025-01-09 21:52:17,946 - root - INFO - Update Attention: Epoch 0378 | Total Time 0.0s
+2025-01-09 21:52:17,946 - root - INFO - Pre-training: Epoch 0378/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0868
+2025-01-09 21:52:18,468 - root - INFO - Update Attention: Epoch 0379 | Total Time 0.0s
+2025-01-09 21:52:18,468 - root - INFO - Pre-training: Epoch 0379/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0910
+2025-01-09 21:52:18,982 - root - INFO - Update Attention: Epoch 0380 | Total Time 0.0s
+2025-01-09 21:52:18,982 - root - INFO - Pre-training: Epoch 0380/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0960
+2025-01-09 21:52:19,500 - root - INFO - Update Attention: Epoch 0381 | Total Time 0.0s
+2025-01-09 21:52:19,500 - root - INFO - Pre-training: Epoch 0381/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0963
+2025-01-09 21:52:20,006 - root - INFO - Update Attention: Epoch 0382 | Total Time 0.0s
+2025-01-09 21:52:20,007 - root - INFO - Pre-training: Epoch 0382/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0821
+2025-01-09 21:52:20,528 - root - INFO - Update Attention: Epoch 0383 | Total Time 0.0s
+2025-01-09 21:52:20,529 - root - INFO - Pre-training: Epoch 0383/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0973
+2025-01-09 21:52:21,028 - root - INFO - Update Attention: Epoch 0384 | Total Time 0.0s
+2025-01-09 21:52:21,029 - root - INFO - Pre-training: Epoch 0384/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0859
+2025-01-09 21:52:21,546 - root - INFO - Update Attention: Epoch 0385 | Total Time 0.0s
+2025-01-09 21:52:21,546 - root - INFO - Pre-training: Epoch 0385/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0829
+2025-01-09 21:52:22,057 - root - INFO - Update Attention: Epoch 0386 | Total Time 0.0s
+2025-01-09 21:52:22,057 - root - INFO - Pre-training: Epoch 0386/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0917
+2025-01-09 21:52:22,550 - root - INFO - Update Attention: Epoch 0387 | Total Time 0.0s
+2025-01-09 21:52:22,550 - root - INFO - Pre-training: Epoch 0387/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0988
+2025-01-09 21:52:23,063 - root - INFO - Update Attention: Epoch 0388 | Total Time 0.0s
+2025-01-09 21:52:23,063 - root - INFO - Pre-training: Epoch 0388/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0959
+2025-01-09 21:52:23,580 - root - INFO - Update Attention: Epoch 0389 | Total Time 0.0s
+2025-01-09 21:52:23,581 - root - INFO - Pre-training: Epoch 0389/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0837
+2025-01-09 21:52:24,110 - root - INFO - Update Attention: Epoch 0390 | Total Time 0.0s
+2025-01-09 21:52:24,111 - root - INFO - Pre-training: Epoch 0390/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0870
+2025-01-09 21:52:24,634 - root - INFO - Update Attention: Epoch 0391 | Total Time 0.0s
+2025-01-09 21:52:24,634 - root - INFO - Pre-training: Epoch 0391/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1098
+2025-01-09 21:52:25,161 - root - INFO - Update Attention: Epoch 0392 | Total Time 0.0s
+2025-01-09 21:52:25,161 - root - INFO - Pre-training: Epoch 0392/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0864
+2025-01-09 21:52:25,704 - root - INFO - Update Attention: Epoch 0393 | Total Time 0.0s
+2025-01-09 21:52:25,704 - root - INFO - Pre-training: Epoch 0393/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0892
+2025-01-09 21:52:26,227 - root - INFO - Update Attention: Epoch 0394 | Total Time 0.0s
+2025-01-09 21:52:26,228 - root - INFO - Pre-training: Epoch 0394/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0927
+2025-01-09 21:52:26,747 - root - INFO - Update Attention: Epoch 0395 | Total Time 0.0s
+2025-01-09 21:52:26,748 - root - INFO - Pre-training: Epoch 0395/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0890
+2025-01-09 21:52:27,260 - root - INFO - Update Attention: Epoch 0396 | Total Time 0.0s
+2025-01-09 21:52:27,260 - root - INFO - Pre-training: Epoch 0396/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0949
+2025-01-09 21:52:27,771 - root - INFO - Update Attention: Epoch 0397 | Total Time 0.0s
+2025-01-09 21:52:27,772 - root - INFO - Pre-training: Epoch 0397/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0878
+2025-01-09 21:52:28,273 - root - INFO - Update Attention: Epoch 0398 | Total Time 0.0s
+2025-01-09 21:52:28,273 - root - INFO - Pre-training: Epoch 0398/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0956
+2025-01-09 21:52:28,778 - root - INFO - Update Attention: Epoch 0399 | Total Time 0.0s
+2025-01-09 21:52:28,779 - root - INFO - Pre-training: Epoch 0399/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0899
+2025-01-09 21:52:29,301 - root - INFO - Update Attention: Epoch 0400 | Total Time 0.0s
+2025-01-09 21:52:29,301 - root - INFO - Pre-training: Epoch 0400/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0901
+2025-01-09 21:52:29,834 - root - INFO - Update Attention: Epoch 0401 | Total Time 0.0s
+2025-01-09 21:52:29,834 - root - INFO - Pre-training: Epoch 0401/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0831
+2025-01-09 21:52:30,360 - root - INFO - Update Attention: Epoch 0402 | Total Time 0.0s
+2025-01-09 21:52:30,361 - root - INFO - Pre-training: Epoch 0402/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0833
+2025-01-09 21:52:30,884 - root - INFO - Update Attention: Epoch 0403 | Total Time 0.0s
+2025-01-09 21:52:30,885 - root - INFO - Pre-training: Epoch 0403/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0856
+2025-01-09 21:52:31,425 - root - INFO - Update Attention: Epoch 0404 | Total Time 0.0s
+2025-01-09 21:52:31,425 - root - INFO - Pre-training: Epoch 0404/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0816
+2025-01-09 21:52:31,980 - root - INFO - Update Attention: Epoch 0405 | Total Time 0.0s
+2025-01-09 21:52:31,980 - root - INFO - Pre-training: Epoch 0405/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0939
+2025-01-09 21:52:32,486 - root - INFO - Update Attention: Epoch 0406 | Total Time 0.0s
+2025-01-09 21:52:32,487 - root - INFO - Pre-training: Epoch 0406/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0934
+2025-01-09 21:52:32,990 - root - INFO - Update Attention: Epoch 0407 | Total Time 0.0s
+2025-01-09 21:52:32,990 - root - INFO - Pre-training: Epoch 0407/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0815
+2025-01-09 21:52:33,011 - root - INFO - Save pre-training model on epoch 0407!
+2025-01-09 21:52:33,516 - root - INFO - Update Attention: Epoch 0408 | Total Time 0.0s
+2025-01-09 21:52:33,516 - root - INFO - Pre-training: Epoch 0408/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0949
+2025-01-09 21:52:34,023 - root - INFO - Update Attention: Epoch 0409 | Total Time 0.0s
+2025-01-09 21:52:34,023 - root - INFO - Pre-training: Epoch 0409/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0791
+2025-01-09 21:52:34,044 - root - INFO - Save pre-training model on epoch 0409!
+2025-01-09 21:52:34,550 - root - INFO - Update Attention: Epoch 0410 | Total Time 0.0s
+2025-01-09 21:52:34,551 - root - INFO - Pre-training: Epoch 0410/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0894
+2025-01-09 21:52:35,071 - root - INFO - Update Attention: Epoch 0411 | Total Time 0.0s
+2025-01-09 21:52:35,071 - root - INFO - Pre-training: Epoch 0411/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0768
+2025-01-09 21:52:35,092 - root - INFO - Save pre-training model on epoch 0411!
+2025-01-09 21:52:35,617 - root - INFO - Update Attention: Epoch 0412 | Total Time 0.0s
+2025-01-09 21:52:35,618 - root - INFO - Pre-training: Epoch 0412/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0914
+2025-01-09 21:52:36,184 - root - INFO - Update Attention: Epoch 0413 | Total Time 0.1s
+2025-01-09 21:52:36,185 - root - INFO - Pre-training: Epoch 0413/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0914
+2025-01-09 21:52:36,708 - root - INFO - Update Attention: Epoch 0414 | Total Time 0.0s
+2025-01-09 21:52:36,709 - root - INFO - Pre-training: Epoch 0414/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0824
+2025-01-09 21:52:37,233 - root - INFO - Update Attention: Epoch 0415 | Total Time 0.0s
+2025-01-09 21:52:37,233 - root - INFO - Pre-training: Epoch 0415/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0884
+2025-01-09 21:52:37,784 - root - INFO - Update Attention: Epoch 0416 | Total Time 0.0s
+2025-01-09 21:52:37,785 - root - INFO - Pre-training: Epoch 0416/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0925
+2025-01-09 21:52:38,314 - root - INFO - Update Attention: Epoch 0417 | Total Time 0.0s
+2025-01-09 21:52:38,315 - root - INFO - Pre-training: Epoch 0417/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.1000
+2025-01-09 21:52:38,833 - root - INFO - Update Attention: Epoch 0418 | Total Time 0.0s
+2025-01-09 21:52:38,833 - root - INFO - Pre-training: Epoch 0418/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0807
+2025-01-09 21:52:39,346 - root - INFO - Update Attention: Epoch 0419 | Total Time 0.0s
+2025-01-09 21:52:39,347 - root - INFO - Pre-training: Epoch 0419/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0856
+2025-01-09 21:52:39,875 - root - INFO - Update Attention: Epoch 0420 | Total Time 0.0s
+2025-01-09 21:52:39,875 - root - INFO - Pre-training: Epoch 0420/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0994
+2025-01-09 21:52:40,398 - root - INFO - Update Attention: Epoch 0421 | Total Time 0.0s
+2025-01-09 21:52:40,398 - root - INFO - Pre-training: Epoch 0421/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0777
+2025-01-09 21:52:40,902 - root - INFO - Update Attention: Epoch 0422 | Total Time 0.0s
+2025-01-09 21:52:40,903 - root - INFO - Pre-training: Epoch 0422/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0868
+2025-01-09 21:52:41,403 - root - INFO - Update Attention: Epoch 0423 | Total Time 0.0s
+2025-01-09 21:52:41,404 - root - INFO - Pre-training: Epoch 0423/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0872
+2025-01-09 21:52:41,925 - root - INFO - Update Attention: Epoch 0424 | Total Time 0.0s
+2025-01-09 21:52:41,925 - root - INFO - Pre-training: Epoch 0424/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0883
+2025-01-09 21:52:42,444 - root - INFO - Update Attention: Epoch 0425 | Total Time 0.0s
+2025-01-09 21:52:42,444 - root - INFO - Pre-training: Epoch 0425/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0848
+2025-01-09 21:52:42,969 - root - INFO - Update Attention: Epoch 0426 | Total Time 0.0s
+2025-01-09 21:52:42,969 - root - INFO - Pre-training: Epoch 0426/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0864
+2025-01-09 21:52:43,487 - root - INFO - Update Attention: Epoch 0427 | Total Time 0.0s
+2025-01-09 21:52:43,487 - root - INFO - Pre-training: Epoch 0427/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0878
+2025-01-09 21:52:44,019 - root - INFO - Update Attention: Epoch 0428 | Total Time 0.0s
+2025-01-09 21:52:44,019 - root - INFO - Pre-training: Epoch 0428/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0909
+2025-01-09 21:52:44,544 - root - INFO - Update Attention: Epoch 0429 | Total Time 0.0s
+2025-01-09 21:52:44,544 - root - INFO - Pre-training: Epoch 0429/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0941
+2025-01-09 21:52:45,057 - root - INFO - Update Attention: Epoch 0430 | Total Time 0.0s
+2025-01-09 21:52:45,057 - root - INFO - Pre-training: Epoch 0430/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0856
+2025-01-09 21:52:45,577 - root - INFO - Update Attention: Epoch 0431 | Total Time 0.0s
+2025-01-09 21:52:45,577 - root - INFO - Pre-training: Epoch 0431/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0910
+2025-01-09 21:52:46,111 - root - INFO - Update Attention: Epoch 0432 | Total Time 0.0s
+2025-01-09 21:52:46,111 - root - INFO - Pre-training: Epoch 0432/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0855
+2025-01-09 21:52:46,630 - root - INFO - Update Attention: Epoch 0433 | Total Time 0.0s
+2025-01-09 21:52:46,630 - root - INFO - Pre-training: Epoch 0433/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0919
+2025-01-09 21:52:47,185 - root - INFO - Update Attention: Epoch 0434 | Total Time 0.1s
+2025-01-09 21:52:47,186 - root - INFO - Pre-training: Epoch 0434/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0943
+2025-01-09 21:52:47,718 - root - INFO - Update Attention: Epoch 0435 | Total Time 0.0s
+2025-01-09 21:52:47,719 - root - INFO - Pre-training: Epoch 0435/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0929
+2025-01-09 21:52:48,222 - root - INFO - Update Attention: Epoch 0436 | Total Time 0.0s
+2025-01-09 21:52:48,223 - root - INFO - Pre-training: Epoch 0436/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0836
+2025-01-09 21:52:48,742 - root - INFO - Update Attention: Epoch 0437 | Total Time 0.0s
+2025-01-09 21:52:48,743 - root - INFO - Pre-training: Epoch 0437/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0880
+2025-01-09 21:52:49,270 - root - INFO - Update Attention: Epoch 0438 | Total Time 0.0s
+2025-01-09 21:52:49,271 - root - INFO - Pre-training: Epoch 0438/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0791
+2025-01-09 21:52:49,779 - root - INFO - Update Attention: Epoch 0439 | Total Time 0.0s
+2025-01-09 21:52:49,780 - root - INFO - Pre-training: Epoch 0439/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0847
+2025-01-09 21:52:50,308 - root - INFO - Update Attention: Epoch 0440 | Total Time 0.0s
+2025-01-09 21:52:50,308 - root - INFO - Pre-training: Epoch 0440/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0795
+2025-01-09 21:52:50,836 - root - INFO - Update Attention: Epoch 0441 | Total Time 0.0s
+2025-01-09 21:52:50,836 - root - INFO - Pre-training: Epoch 0441/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0761
+2025-01-09 21:52:50,856 - root - INFO - Save pre-training model on epoch 0441!
+2025-01-09 21:52:51,374 - root - INFO - Update Attention: Epoch 0442 | Total Time 0.0s
+2025-01-09 21:52:51,374 - root - INFO - Pre-training: Epoch 0442/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0818
+2025-01-09 21:52:51,921 - root - INFO - Update Attention: Epoch 0443 | Total Time 0.0s
+2025-01-09 21:52:51,922 - root - INFO - Pre-training: Epoch 0443/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0827
+2025-01-09 21:52:52,450 - root - INFO - Update Attention: Epoch 0444 | Total Time 0.0s
+2025-01-09 21:52:52,451 - root - INFO - Pre-training: Epoch 0444/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0904
+2025-01-09 21:52:52,988 - root - INFO - Update Attention: Epoch 0445 | Total Time 0.0s
+2025-01-09 21:52:52,988 - root - INFO - Pre-training: Epoch 0445/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0904
+2025-01-09 21:52:53,496 - root - INFO - Update Attention: Epoch 0446 | Total Time 0.0s
+2025-01-09 21:52:53,497 - root - INFO - Pre-training: Epoch 0446/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0859
+2025-01-09 21:52:53,992 - root - INFO - Update Attention: Epoch 0447 | Total Time 0.0s
+2025-01-09 21:52:53,993 - root - INFO - Pre-training: Epoch 0447/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0804
+2025-01-09 21:52:54,501 - root - INFO - Update Attention: Epoch 0448 | Total Time 0.0s
+2025-01-09 21:52:54,501 - root - INFO - Pre-training: Epoch 0448/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0822
+2025-01-09 21:52:55,024 - root - INFO - Update Attention: Epoch 0449 | Total Time 0.0s
+2025-01-09 21:52:55,025 - root - INFO - Pre-training: Epoch 0449/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0829
+2025-01-09 21:52:55,549 - root - INFO - Update Attention: Epoch 0450 | Total Time 0.0s
+2025-01-09 21:52:55,550 - root - INFO - Pre-training: Epoch 0450/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0815
+2025-01-09 21:52:56,066 - root - INFO - Update Attention: Epoch 0451 | Total Time 0.0s
+2025-01-09 21:52:56,066 - root - INFO - Pre-training: Epoch 0451/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0744
+2025-01-09 21:52:56,090 - root - INFO - Save pre-training model on epoch 0451!
+2025-01-09 21:52:56,602 - root - INFO - Update Attention: Epoch 0452 | Total Time 0.0s
+2025-01-09 21:52:56,602 - root - INFO - Pre-training: Epoch 0452/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0832
+2025-01-09 21:52:57,133 - root - INFO - Update Attention: Epoch 0453 | Total Time 0.0s
+2025-01-09 21:52:57,133 - root - INFO - Pre-training: Epoch 0453/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0777
+2025-01-09 21:52:57,665 - root - INFO - Update Attention: Epoch 0454 | Total Time 0.0s
+2025-01-09 21:52:57,666 - root - INFO - Pre-training: Epoch 0454/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0826
+2025-01-09 21:52:58,183 - root - INFO - Update Attention: Epoch 0455 | Total Time 0.0s
+2025-01-09 21:52:58,184 - root - INFO - Pre-training: Epoch 0455/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0815
+2025-01-09 21:52:58,700 - root - INFO - Update Attention: Epoch 0456 | Total Time 0.0s
+2025-01-09 21:52:58,700 - root - INFO - Pre-training: Epoch 0456/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0844
+2025-01-09 21:52:59,214 - root - INFO - Update Attention: Epoch 0457 | Total Time 0.0s
+2025-01-09 21:52:59,215 - root - INFO - Pre-training: Epoch 0457/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0824
+2025-01-09 21:52:59,726 - root - INFO - Update Attention: Epoch 0458 | Total Time 0.0s
+2025-01-09 21:52:59,727 - root - INFO - Pre-training: Epoch 0458/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0835
+2025-01-09 21:53:00,263 - root - INFO - Update Attention: Epoch 0459 | Total Time 0.0s
+2025-01-09 21:53:00,264 - root - INFO - Pre-training: Epoch 0459/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0801
+2025-01-09 21:53:00,827 - root - INFO - Update Attention: Epoch 0460 | Total Time 0.0s
+2025-01-09 21:53:00,827 - root - INFO - Pre-training: Epoch 0460/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0930
+2025-01-09 21:53:01,378 - root - INFO - Update Attention: Epoch 0461 | Total Time 0.0s
+2025-01-09 21:53:01,378 - root - INFO - Pre-training: Epoch 0461/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0766
+2025-01-09 21:53:01,913 - root - INFO - Update Attention: Epoch 0462 | Total Time 0.0s
+2025-01-09 21:53:01,913 - root - INFO - Pre-training: Epoch 0462/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0788
+2025-01-09 21:53:02,440 - root - INFO - Update Attention: Epoch 0463 | Total Time 0.0s
+2025-01-09 21:53:02,441 - root - INFO - Pre-training: Epoch 0463/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0814
+2025-01-09 21:53:02,958 - root - INFO - Update Attention: Epoch 0464 | Total Time 0.0s
+2025-01-09 21:53:02,958 - root - INFO - Pre-training: Epoch 0464/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0847
+2025-01-09 21:53:03,487 - root - INFO - Update Attention: Epoch 0465 | Total Time 0.0s
+2025-01-09 21:53:03,488 - root - INFO - Pre-training: Epoch 0465/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0731
+2025-01-09 21:53:03,509 - root - INFO - Save pre-training model on epoch 0465!
+2025-01-09 21:53:04,029 - root - INFO - Update Attention: Epoch 0466 | Total Time 0.0s
+2025-01-09 21:53:04,029 - root - INFO - Pre-training: Epoch 0466/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0819
+2025-01-09 21:53:04,574 - root - INFO - Update Attention: Epoch 0467 | Total Time 0.0s
+2025-01-09 21:53:04,574 - root - INFO - Pre-training: Epoch 0467/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0825
+2025-01-09 21:53:05,094 - root - INFO - Update Attention: Epoch 0468 | Total Time 0.0s
+2025-01-09 21:53:05,094 - root - INFO - Pre-training: Epoch 0468/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0862
+2025-01-09 21:53:05,619 - root - INFO - Update Attention: Epoch 0469 | Total Time 0.0s
+2025-01-09 21:53:05,619 - root - INFO - Pre-training: Epoch 0469/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0753
+2025-01-09 21:53:06,130 - root - INFO - Update Attention: Epoch 0470 | Total Time 0.0s
+2025-01-09 21:53:06,130 - root - INFO - Pre-training: Epoch 0470/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0779
+2025-01-09 21:53:06,644 - root - INFO - Update Attention: Epoch 0471 | Total Time 0.0s
+2025-01-09 21:53:06,644 - root - INFO - Pre-training: Epoch 0471/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0750
+2025-01-09 21:53:07,161 - root - INFO - Update Attention: Epoch 0472 | Total Time 0.0s
+2025-01-09 21:53:07,162 - root - INFO - Pre-training: Epoch 0472/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0882
+2025-01-09 21:53:07,696 - root - INFO - Update Attention: Epoch 0473 | Total Time 0.0s
+2025-01-09 21:53:07,696 - root - INFO - Pre-training: Epoch 0473/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0756
+2025-01-09 21:53:08,253 - root - INFO - Update Attention: Epoch 0474 | Total Time 0.0s
+2025-01-09 21:53:08,254 - root - INFO - Pre-training: Epoch 0474/0500 Total Iter 0007 | Total Time 0.6s | Iter Mean Loss 0.0752
+2025-01-09 21:53:08,750 - root - INFO - Update Attention: Epoch 0475 | Total Time 0.0s
+2025-01-09 21:53:09,214 - root - INFO - Pre-training: Epoch 0475/0500 Total Iter 0007 | Total Time 1.0s | Iter Mean Loss 0.0740
+2025-01-09 21:53:09,689 - root - INFO - Update Attention: Epoch 0476 | Total Time 0.0s
+2025-01-09 21:53:09,690 - root - INFO - Pre-training: Epoch 0476/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0909
+2025-01-09 21:53:10,201 - root - INFO - Update Attention: Epoch 0477 | Total Time 0.0s
+2025-01-09 21:53:10,202 - root - INFO - Pre-training: Epoch 0477/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0821
+2025-01-09 21:53:10,727 - root - INFO - Update Attention: Epoch 0478 | Total Time 0.0s
+2025-01-09 21:53:10,727 - root - INFO - Pre-training: Epoch 0478/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0875
+2025-01-09 21:53:11,220 - root - INFO - Update Attention: Epoch 0479 | Total Time 0.0s
+2025-01-09 21:53:11,220 - root - INFO - Pre-training: Epoch 0479/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0889
+2025-01-09 21:53:11,693 - root - INFO - Update Attention: Epoch 0480 | Total Time 0.0s
+2025-01-09 21:53:11,694 - root - INFO - Pre-training: Epoch 0480/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0800
+2025-01-09 21:53:12,172 - root - INFO - Update Attention: Epoch 0481 | Total Time 0.0s
+2025-01-09 21:53:12,172 - root - INFO - Pre-training: Epoch 0481/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0828
+2025-01-09 21:53:12,654 - root - INFO - Update Attention: Epoch 0482 | Total Time 0.0s
+2025-01-09 21:53:12,654 - root - INFO - Pre-training: Epoch 0482/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0703
+2025-01-09 21:53:12,675 - root - INFO - Save pre-training model on epoch 0482!
+2025-01-09 21:53:13,155 - root - INFO - Update Attention: Epoch 0483 | Total Time 0.0s
+2025-01-09 21:53:13,155 - root - INFO - Pre-training: Epoch 0483/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0788
+2025-01-09 21:53:13,635 - root - INFO - Update Attention: Epoch 0484 | Total Time 0.0s
+2025-01-09 21:53:13,635 - root - INFO - Pre-training: Epoch 0484/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0803
+2025-01-09 21:53:14,125 - root - INFO - Update Attention: Epoch 0485 | Total Time 0.0s
+2025-01-09 21:53:14,125 - root - INFO - Pre-training: Epoch 0485/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0827
+2025-01-09 21:53:14,612 - root - INFO - Update Attention: Epoch 0486 | Total Time 0.0s
+2025-01-09 21:53:14,613 - root - INFO - Pre-training: Epoch 0486/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0819
+2025-01-09 21:53:15,097 - root - INFO - Update Attention: Epoch 0487 | Total Time 0.0s
+2025-01-09 21:53:15,097 - root - INFO - Pre-training: Epoch 0487/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0849
+2025-01-09 21:53:15,567 - root - INFO - Update Attention: Epoch 0488 | Total Time 0.0s
+2025-01-09 21:53:15,567 - root - INFO - Pre-training: Epoch 0488/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0797
+2025-01-09 21:53:16,049 - root - INFO - Update Attention: Epoch 0489 | Total Time 0.0s
+2025-01-09 21:53:16,050 - root - INFO - Pre-training: Epoch 0489/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0789
+2025-01-09 21:53:16,525 - root - INFO - Update Attention: Epoch 0490 | Total Time 0.0s
+2025-01-09 21:53:16,525 - root - INFO - Pre-training: Epoch 0490/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0731
+2025-01-09 21:53:17,035 - root - INFO - Update Attention: Epoch 0491 | Total Time 0.0s
+2025-01-09 21:53:17,035 - root - INFO - Pre-training: Epoch 0491/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0779
+2025-01-09 21:53:17,487 - root - INFO - Update Attention: Epoch 0492 | Total Time 0.0s
+2025-01-09 21:53:17,488 - root - INFO - Pre-training: Epoch 0492/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0739
+2025-01-09 21:53:17,958 - root - INFO - Update Attention: Epoch 0493 | Total Time 0.0s
+2025-01-09 21:53:17,958 - root - INFO - Pre-training: Epoch 0493/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0855
+2025-01-09 21:53:18,415 - root - INFO - Update Attention: Epoch 0494 | Total Time 0.0s
+2025-01-09 21:53:18,415 - root - INFO - Pre-training: Epoch 0494/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0795
+2025-01-09 21:53:18,873 - root - INFO - Update Attention: Epoch 0495 | Total Time 0.0s
+2025-01-09 21:53:18,873 - root - INFO - Pre-training: Epoch 0495/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0814
+2025-01-09 21:53:19,325 - root - INFO - Update Attention: Epoch 0496 | Total Time 0.0s
+2025-01-09 21:53:19,325 - root - INFO - Pre-training: Epoch 0496/0500 Total Iter 0007 | Total Time 0.4s | Iter Mean Loss 0.0848
+2025-01-09 21:53:19,792 - root - INFO - Update Attention: Epoch 0497 | Total Time 0.0s
+2025-01-09 21:53:19,792 - root - INFO - Pre-training: Epoch 0497/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0791
+2025-01-09 21:53:20,258 - root - INFO - Update Attention: Epoch 0498 | Total Time 0.0s
+2025-01-09 21:53:20,258 - root - INFO - Pre-training: Epoch 0498/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0908
+2025-01-09 21:53:20,734 - root - INFO - Update Attention: Epoch 0499 | Total Time 0.0s
+2025-01-09 21:53:20,735 - root - INFO - Pre-training: Epoch 0499/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0807
+2025-01-09 21:53:21,207 - root - INFO - Update Attention: Epoch 0500 | Total Time 0.0s
+2025-01-09 21:53:21,207 - root - INFO - Pre-training: Epoch 0500/0500 Total Iter 0007 | Total Time 0.5s | Iter Mean Loss 0.0771
+2025-01-09 21:53:21,210 - root - INFO - FINALLY -------
+2025-01-09 21:53:21,211 - root - INFO - Pre-training loss list [0.7118458492415292, 0.6672969801085336, 0.6622874140739441, 0.6581638029643467, 0.655409404209682, 0.6481140681675502, 0.648441995893206, 0.6404205901282174, 0.6312896183558873, 0.6261966739382062, 0.6148606964520046, 0.6155360426221576, 0.6052723356655666, 0.6016624910490853, 0.5916159663881574, 0.5810672044754028, 0.578708393233163, 0.5562064307076591, 0.5582161460603986, 0.5453197360038757, 0.5403931481497628, 0.525493894304548, 0.5181077889033726, 0.5002601572445461, 0.4944816955498287, 0.48022257004465374, 0.48189135108675274, 0.47827339598110746, 0.46125067131859915, 0.44409203955105375, 0.44173007777759005, 0.4269488624164036, 0.4130018098013742, 0.41724267176219393, 0.39572552272251676, 0.39941986543791635, 0.389830938407353, 0.3914748047079359, 0.3833010622433254, 0.3697913246495383, 0.37117829067366465, 0.3680457217352731, 0.3636709919997624, 0.3558142866407122, 0.3364049068519047, 0.3300654717854091, 0.33426772696631296, 0.33751333185604643, 0.32199823430606295, 0.30530603868620737, 0.3189622802393777, 0.3177802051816668, 0.30025876419884817, 0.3137018212250301, 0.2892074542386191, 0.291282845394952, 0.3022965065070561, 0.2889617851802281, 0.28616238491875784, 0.2740527221134731, 0.2880610908780779, 0.27344008002962383, 0.28824616755758015, 0.26693675773484365, 0.26250644666807993, 0.2662006531442915, 0.26790554182870047, 0.26554231558527264, 0.2572860781635557, 0.2574944496154785, 0.2523541876247951, 0.2382504173687526, 0.2446623934166772, 0.24720442295074463, 0.24170883212770736, 0.2406822144985199, 0.24465478105204447, 0.2387857884168625, 0.2359965933220727, 0.2267809339932033, 0.23017811562333787, 0.23975622866834914, 0.22925126552581787, 0.22283200281006948, 0.21932610869407654, 0.22315908542701177, 0.2122039475611278, 0.22086656093597412, 0.21265784970351628, 0.22462383125509536, 0.21428988873958588, 0.2116885014942714, 0.20255239520754134, 0.21562312543392181, 0.2145579606294632, 0.20268620124885015, 0.20413950937134878, 0.20136262263570512, 0.2003264661346163, 0.21111264399119786, 0.20222323281424387, 0.18871972816331045, 0.19780113015856063, 0.19935966389519827, 0.19224220514297485, 0.2028408029249736, 0.21007547421114786, 0.18725428410938807, 0.19073363925729478, 0.18151999158518656, 0.19389965065887996, 0.18264894826071604, 0.1938216941697257, 0.17349000700882503, 0.1797900242464883, 0.1823562511375972, 0.17482272854873113, 0.1696954561131341, 0.1822558492422104, 0.18182370492390224, 0.17428392384733474, 0.1777901372739247, 0.17398342064448766, 0.1748465406043189, 0.17409504737172807, 0.16971073618956975, 0.15867843159607478, 0.1698289236852101, 0.1709073781967163, 0.16501725784369878, 0.16550293139048985, 0.16130295608724868, 0.1710700818470546, 0.1658458113670349, 0.15634161233901978, 0.15994266527039663, 0.17380272064890182, 0.15418618065970285, 0.1602389897618975, 0.1581449263862201, 0.15006153285503387, 0.1545091164963586, 0.1459177689892905, 0.16479348710605077, 0.17127953044005803, 0.16674604160445078, 0.142268568277359, 0.1431401946714946, 0.1590994277170726, 0.1453342671905245, 0.15383788836853846, 0.1581075234072549, 0.15758007551942552, 0.138869902917317, 0.16765260696411133, 0.15722480842045375, 0.13915543045316422, 0.1461070648261479, 0.14466667813914164, 0.13305798705135072, 0.1501573153904506, 0.15809479568685805, 0.1498527250119618, 0.14302842638322286, 0.13652098178863525, 0.1339963429740497, 0.13397559417145594, 0.14226312722478593, 0.14132651686668396, 0.13853696414402553, 0.1401923085962023, 0.1277917123266629, 0.1327863729425839, 0.13025582794632232, 0.1553982879434313, 0.1366465219429561, 0.128484380032335, 0.13742674248559134, 0.1464043025459562, 0.13861783700329916, 0.128549938755376, 0.14488696519817626, 0.13155305917773927, 0.12593365141323634, 0.12912642530032567, 0.11736700364521571, 0.1318863875099591, 0.13098396893058503, 0.1320159137248993, 0.12074528740985054, 0.1293345774923052, 0.13089864701032639, 0.12606417494160788, 0.12362167877810341, 0.12911419251135417, 0.13067039953810827, 0.1250116378068924, 0.1295842081308365, 0.11751958727836609, 0.12152867551360812, 0.13368901291063853, 0.11883375580821719, 0.12727259738104685, 0.1308573835662433, 0.1308545023202896, 0.13698657069887435, 0.12806870256151473, 0.12210565486124583, 0.12090663079704557, 0.12118978372641973, 0.11154915285961968, 0.1268556203160967, 0.11430818800415311, 0.10971720623118537, 0.13449970952102117, 0.1305202149919101, 0.12086985685995646, 0.11544866966349739, 0.12108875066041946, 0.11395961684840065, 0.1130537475858416, 0.12728068977594376, 0.12113080386604581, 0.12624434168849671, 0.11986898205110005, 0.11985848311867033, 0.11874174113784518, 0.11702396614210946, 0.10205741333109992, 0.11980778404644557, 0.11813459971121379, 0.1059829273394176, 0.12058111067329134, 0.10967144476515907, 0.10685532007898603, 0.11183276133877891, 0.10802407030548368, 0.1182443882737841, 0.11298256261008126, 0.12601216669593537, 0.11002791672945023, 0.11235457233020238, 0.11709610053471156, 0.11253077430384499, 0.12452527561358043, 0.13004929572343826, 0.10303787354912076, 0.12290303089788981, 0.11126045031206948, 0.11443329176732472, 0.11008052953651973, 0.10691762715578079, 0.11359523449625288, 0.10871765656130654, 0.1077326312661171, 0.10501796965088163, 0.10768097426210131, 0.10856928144182477, 0.11019815504550934, 0.11020077764987946, 0.10631617371525083, 0.10721046264682497, 0.12071349258933749, 0.11331887862512044, 0.10935667582920619, 0.10251723549195699, 0.12306267342397145, 0.1023166413818087, 0.10946382475750786, 0.11492508436952319, 0.10681914325271334, 0.11523802259138652, 0.10580672749451228, 0.11390234742845808, 0.1146802550980023, 0.11351114405053002, 0.10264969084944044, 0.11058445487703596, 0.10353126802614757, 0.09975703592811312, 0.10335800051689148, 0.09986403265169688, 0.10567101836204529, 0.11165124603680202, 0.11413125268050603, 0.10715141892433167, 0.0967033611876624, 0.1041605823806354, 0.11509323865175247, 0.08990609113659177, 0.10794218416724886, 0.10492225629942757, 0.10397784624780927, 0.10132362799985069, 0.10099925632987704, 0.10116499662399292, 0.10827824899128505, 0.10210867651871272, 0.10061179633651461, 0.115500451198646, 0.10866724380425044, 0.11557893774339131, 0.10659445183617729, 0.10704528646809715, 0.10248139500617981, 0.10615894517728261, 0.09929109577621732, 0.10260118331227984, 0.11035091749259404, 0.1014547763126237, 0.10076300693409783, 0.10540309548377991, 0.09520745064531054, 0.11233353721243995, 0.09821516275405884, 0.09633122490985054, 0.10228773738656725, 0.10002391891820091, 0.10186913822378431, 0.1055875111903463, 0.10669830441474915, 0.10088471110377993, 0.1015760600566864, 0.10174132244927543, 0.09049402390207563, 0.09233498679740089, 0.0952898423586573, 0.0959185180919511, 0.09684542566537857, 0.09092662164143153, 0.09786096960306168, 0.08778412480439458, 0.10013296880892344, 0.0911493610058512, 0.09312968913997922, 0.10286822276456016, 0.0946283723626818, 0.09686168921845299, 0.09956427770001548, 0.1060161931174142, 0.10231959074735641, 0.10193273105791636, 0.09414185157843999, 0.10337115611348834, 0.09726212812321526, 0.09689676123006004, 0.10019249894789287, 0.08825886675289699, 0.08514204408441271, 0.09575752594641276, 0.09407085286719459, 0.10098837741783687, 0.08936603367328644, 0.08472839849335807, 0.0982200556567737, 0.10240922442504338, 0.0991280238543238, 0.09741722898823875, 0.09771049341985158, 0.09694146471364158, 0.0958701851112502, 0.09208316036633082, 0.09599661827087402, 0.08155581035784312, 0.09216067301375526, 0.09754961941923414, 0.09421969098704201, 0.09225349234683174, 0.08625396394303866, 0.0970229080745152, 0.09805780117000852, 0.09554832322256905, 0.09877617550747735, 0.0899880560381072, 0.0948972584945815, 0.0977915780884879, 0.09525547921657562, 0.08675829321146011, 0.09100609804902758, 0.09604545363358089, 0.09630822496754783, 0.08211237085717064, 0.09728227236441203, 0.085890708225114, 0.08288727487836565, 0.09174344050032752, 0.09884331162486758, 0.09585234629256385, 0.08372376007693154, 0.08695461601018906, 0.10976579572473254, 0.08642000332474709, 0.08921268795217786, 0.09274478682449885, 0.08902511532817568, 0.09494879203183311, 0.08783871893371854, 0.0956236964889935, 0.08992681226560048, 0.09013334342411586, 0.08310884024415698, 0.083334852542196, 0.08562051504850388, 0.08158308906214577, 0.09391811170748302, 0.09336075080292565, 0.08154415019920894, 0.09494880267551967, 0.07912418193050794, 0.08936004074556488, 0.07681944487350327, 0.09144383988210134, 0.09139627005372729, 0.08238250336476735, 0.08844115691525596, 0.09251498005219869, 0.10000686453921455, 0.08072307333350182, 0.0856108016201428, 0.09939908662012645, 0.07767278062445777, 0.08675490426165718, 0.08721568967614855, 0.08829833034958158, 0.08482909202575684, 0.08644322944538933, 0.0878324785402843, 0.09085783043078013, 0.09407068363257817, 0.08558715454169682, 0.09104558719055993, 0.08551926165819168, 0.09188008734158107, 0.0943395687001092, 0.0929351534162249, 0.08357841787593705, 0.08801385440996715, 0.07905075911964689, 0.08472458805356707, 0.07946365539516721, 0.07607707753777504, 0.08178925194910594, 0.08269155983413969, 0.09041865702186312, 0.09040097147226334, 0.08592424115964345, 0.08043508870261055, 0.08216273891074317, 0.08286453677075249, 0.08145206315176827, 0.0744242433990751, 0.08316915162972041, 0.077715237225805, 0.0825719301189695, 0.08153666076915604, 0.08438138450895037, 0.08239267766475677, 0.08349539978163582, 0.08014320209622383, 0.09296098351478577, 0.07657205526317869, 0.07875165769032069, 0.08137971482106618, 0.08466731863362449, 0.07313144100563866, 0.0818622059055737, 0.0825329337801252, 0.08619023806282453, 0.07526447996497154, 0.07789651517357145, 0.0750487350991794, 0.08816742151975632, 0.0756247171333858, 0.07519618634666715, 0.07395116346223014, 0.09091076893465859, 0.0821422210761479, 0.08746057323047093, 0.08885458111763, 0.08002275015626635, 0.0827965188239302, 0.07026594291840281, 0.07876486011913844, 0.08026350662112236, 0.08274161283458982, 0.08191185125282832, 0.08490732525076185, 0.07967009555016245, 0.07891283077853066, 0.07313629133360726, 0.07794619883809771, 0.07390603103807994, 0.08547690936497279, 0.07946109878165382, 0.08137179059641701, 0.08477624718632017, 0.0790796812091555, 0.09077960891383034, 0.08071689839873995, 0.07707154644387108]
+2025-01-09 21:53:21,216 - root - INFO - Pre training time training [1.5160844326019287, 0.5350196361541748, 0.5260629653930664, 0.5360250473022461, 0.5399999618530273, 0.5370237827301025, 0.5389983654022217, 0.5744719505310059, 0.5680351257324219, 0.5499980449676514, 0.5290288925170898, 0.5350246429443359, 0.5370216369628906, 0.5330004692077637, 0.5480003356933594, 0.5493137836456299, 0.545001745223999, 0.5170252323150635, 0.47403550148010254, 0.4589979648590088, 0.4525485038757324, 0.4950258731842041, 0.5280017852783203, 0.48502588272094727, 0.5010287761688232, 0.5090222358703613, 0.5250000953674316, 0.5260269641876221, 0.5123922824859619, 0.5320007801055908, 0.5260002613067627, 0.5020022392272949, 0.5149307250976562, 0.5135211944580078, 0.5360748767852783, 0.5170414447784424, 0.5339961051940918, 0.5180017948150635, 0.5320310592651367, 0.5380220413208008, 0.5230259895324707, 0.5120010375976562, 0.5030229091644287, 0.5150272846221924, 0.5069983005523682, 0.5070230960845947, 0.5049989223480225, 0.5092620849609375, 0.5310325622558594, 0.5304932594299316, 0.5220019817352295, 0.5470225811004639, 0.5606467723846436, 0.520134449005127, 0.4889998435974121, 0.8884749412536621, 0.47299838066101074, 0.5010025501251221, 0.5179994106292725, 0.5080010890960693, 0.5170013904571533, 0.5149991512298584, 0.5229976177215576, 0.5240004062652588, 0.5483357906341553, 0.527005672454834, 0.515510082244873, 0.5094530582427979, 0.5150015354156494, 0.52699875831604, 0.5319993495941162, 0.5469985008239746, 0.5640020370483398, 0.5355145931243896, 0.5260004997253418, 0.5139980316162109, 0.4909987449645996, 0.4785118103027344, 0.509000301361084, 0.5170011520385742, 0.5060017108917236, 0.5820009708404541, 0.574000358581543, 0.5449998378753662, 0.5030007362365723, 0.4960005283355713, 0.48999905586242676, 0.4850015640258789, 0.4929990768432617, 0.5049984455108643, 0.5180003643035889, 0.5030019283294678, 0.5219998359680176, 0.5120000839233398, 0.5269999504089355, 0.5299999713897705, 0.5330007076263428, 0.5479996204376221, 0.5690014362335205, 0.5430006980895996, 0.5470013618469238, 0.5230212211608887, 0.5154380798339844, 0.512016773223877, 0.5269999504089355, 0.5200016498565674, 0.5060009956359863, 0.525001049041748, 0.5487830638885498, 0.5219993591308594, 0.5390000343322754, 0.5650005340576172, 0.5409986972808838, 0.5380196571350098, 0.4999995231628418, 0.5069999694824219, 0.5460176467895508, 0.5249993801116943, 0.5499999523162842, 0.5650010108947754, 0.5709998607635498, 0.5970005989074707, 0.556002140045166, 0.5270042419433594, 0.554999828338623, 0.5559999942779541, 0.5279998779296875, 0.5429990291595459, 0.5150008201599121, 0.5059990882873535, 0.5232746601104736, 0.5410006046295166, 0.5510001182556152, 0.45999979972839355, 0.4570004940032959, 0.4649989604949951, 0.46000146865844727, 0.453998327255249, 0.4439992904663086, 0.44899988174438477, 0.45999860763549805, 0.4840095043182373, 0.4804096221923828, 0.4830007553100586, 0.5030002593994141, 0.5559992790222168, 0.629511833190918, 0.5909979343414307, 0.581002950668335, 0.5909993648529053, 0.5409986972808838, 0.512998104095459, 0.5120196342468262, 0.501124382019043, 0.514000415802002, 0.5280036926269531, 0.5210006237030029, 0.5219995975494385, 0.5090012550354004, 0.5016252994537354, 0.5340001583099365, 0.5460007190704346, 0.546999454498291, 0.5289995670318604, 0.52699875831604, 0.5420017242431641, 0.5540008544921875, 0.5219995975494385, 0.5460023880004883, 0.5229995250701904, 0.516000509262085, 0.5329990386962891, 0.5540006160736084, 0.5839986801147461, 0.5399980545043945, 0.5489990711212158, 0.5609989166259766, 0.5399994850158691, 0.5319976806640625, 0.560999870300293, 0.571998119354248, 0.5680031776428223, 0.5659997463226318, 0.5649988651275635, 0.5510005950927734, 0.5599985122680664, 0.5319993495941162, 0.5389983654022217, 0.5359995365142822, 0.5548646450042725, 0.5526156425476074, 0.5580005645751953, 0.5810022354125977, 0.5520005226135254, 0.5280003547668457, 0.5379989147186279, 0.5740015506744385, 0.5730009078979492, 0.4979996681213379, 0.5230011940002441, 0.5340006351470947, 0.5179991722106934, 0.5130002498626709, 0.5269994735717773, 0.5409986972808838, 0.5199968814849854, 0.5349996089935303, 0.5239996910095215, 0.5409986972808838, 0.5190279483795166, 0.5059983730316162, 0.5199997425079346, 0.5043530464172363, 0.5079996585845947, 0.4952247142791748, 0.5380008220672607, 0.5590026378631592, 0.5720024108886719, 0.5379979610443115, 0.5319993495941162, 0.5559995174407959, 0.530001163482666, 0.5119991302490234, 0.5230145454406738, 0.5310001373291016, 0.4799985885620117, 0.5369997024536133, 0.530998706817627, 0.5179998874664307, 0.515998363494873, 0.5370016098022461, 0.5479996204376221, 0.5190005302429199, 0.5690011978149414, 0.5129990577697754, 0.5210003852844238, 0.504000186920166, 0.5010025501251221, 0.5099999904632568, 0.5130021572113037, 0.5180280208587646, 0.5439999103546143, 0.5730001926422119, 0.5249993801116943, 0.571000337600708, 0.5540015697479248, 0.5530006885528564, 0.5469999313354492, 0.5550005435943604, 0.5559992790222168, 0.5629997253417969, 0.5460877418518066, 0.495999813079834, 0.479999303817749, 0.4570004940032959, 0.48399949073791504, 0.5179989337921143, 0.533001184463501, 0.4929995536804199, 0.49899911880493164, 0.4999995231628418, 0.5040037631988525, 0.5169985294342041, 0.4950261116027832, 0.49000048637390137, 0.4869999885559082, 0.49700021743774414, 0.5098979473114014, 0.5149986743927002, 0.5120227336883545, 0.5029993057250977, 0.5130021572113037, 0.5230081081390381, 0.5140202045440674, 0.5070180892944336, 0.5151803493499756, 0.5290000438690186, 0.5210216045379639, 0.5527904033660889, 0.5330004692077637, 0.5260105133056641, 0.5236923694610596, 0.5269985198974609, 0.5240001678466797, 0.5230000019073486, 0.5169436931610107, 0.5435116291046143, 0.5102360248565674, 0.5049998760223389, 0.511873722076416, 0.5029985904693604, 0.5210011005401611, 0.5210001468658447, 0.5239989757537842, 0.5240011215209961, 0.543999195098877, 0.5599992275238037, 0.5340001583099365, 0.513441801071167, 0.5160253047943115, 0.5140044689178467, 0.5269992351531982, 0.5160007476806641, 0.5400035381317139, 0.5420000553131104, 0.5351214408874512, 0.5280005931854248, 0.5300021171569824, 0.5260217189788818, 0.5469989776611328, 0.5260035991668701, 0.5190000534057617, 0.5180132389068604, 0.5289041996002197, 0.5292341709136963, 0.6080002784729004, 0.5474767684936523, 0.5179986953735352, 0.5340023040771484, 0.576505184173584, 0.5279982089996338, 0.5290021896362305, 0.5330255031585693, 0.5299694538116455, 0.5049993991851807, 0.48400044441223145, 0.5010004043579102, 0.5391285419464111, 0.5190451145172119, 0.5269999504089355, 0.5079994201660156, 0.5110020637512207, 0.5283262729644775, 0.505000114440918, 0.5090255737304688, 0.4949991703033447, 0.5040147304534912, 0.5009987354278564, 0.518021821975708, 0.5240030288696289, 0.5240888595581055, 0.5349991321563721, 0.538001537322998, 0.5209953784942627, 0.5250000953674316, 0.5309994220733643, 0.511014461517334, 0.4979991912841797, 0.5020012855529785, 0.4927856922149658, 0.5069994926452637, 0.5259997844696045, 0.5280001163482666, 0.5980000495910645, 0.5299994945526123, 0.5459983348846436, 0.5340008735656738, 0.530510663986206, 0.5079984664916992, 0.5560002326965332, 0.5229995250701904, 0.5139992237091064, 0.5179998874664307, 0.5230016708374023, 0.5288918018341064, 0.5461611747741699, 0.5418448448181152, 0.5459997653961182, 0.5299727916717529, 0.5520007610321045, 0.5509977340698242, 0.5289990901947021, 0.5200018882751465, 0.49899864196777344, 0.5104165077209473, 0.5319957733154297, 0.5310280323028564, 0.5139999389648438, 0.5188584327697754, 0.511014461517334, 0.5150015354156494, 0.5039987564086914, 0.5200011730194092, 0.4980194568634033, 0.5149986743927002, 0.5090019702911377, 0.4909999370574951, 0.5099997520446777, 0.5159997940063477, 0.5281684398651123, 0.5210011005401611, 0.524998664855957, 0.5399994850158691, 0.5220010280609131, 0.5179989337921143, 0.5090246200561523, 0.5100011825561523, 0.5, 0.5030002593994141, 0.51999831199646, 0.5310227870941162, 0.5239980220794678, 0.5220005512237549, 0.5379993915557861, 0.5540003776550293, 0.5050032138824463, 0.5018188953399658, 0.5030019283294678, 0.5040009021759033, 0.5050098896026611, 0.518000602722168, 0.5231611728668213, 0.5640003681182861, 0.5210003852844238, 0.5231482982635498, 0.5481142997741699, 0.528010368347168, 0.5159995555877686, 0.5109975337982178, 0.5260007381439209, 0.51999831199646, 0.5027987957000732, 0.49899911880493164, 0.5189995765686035, 0.5160000324249268, 0.5248105525970459, 0.5149989128112793, 0.5299994945526123, 0.5199975967407227, 0.511000394821167, 0.5180222988128662, 0.5320260524749756, 0.5159990787506104, 0.5538425445556641, 0.5300009250640869, 0.5009996891021729, 0.5179998874664307, 0.5259997844696045, 0.5068058967590332, 0.526099443435669, 0.5261352062225342, 0.516963005065918, 0.5450756549835205, 0.5270302295684814, 0.535001277923584, 0.505986213684082, 0.4939582347869873, 0.5060014724731445, 0.5210001468658447, 0.5230021476745605, 0.514000654220581, 0.5089988708496094, 0.5279991626739502, 0.5299992561340332, 0.5160012245178223, 0.5129983425140381, 0.5119993686676025, 0.5091750621795654, 0.535513162612915, 0.5615119934082031, 0.5485141277313232, 0.5320010185241699, 0.5260000228881836, 0.5149989128112793, 0.5270013809204102, 0.5190017223358154, 0.5425362586975098, 0.5181291103363037, 0.5220024585723877, 0.5080294609069824, 0.511002779006958, 0.5160019397735596, 0.5319995880126953, 0.5551674365997314, 0.957998514175415, 0.47299933433532715, 0.5100014209747314, 0.5230011940002441, 0.49017786979675293, 0.4720001220703125, 0.4759981632232666, 0.479891300201416, 0.4770026206970215, 0.4790008068084717, 0.4870007038116455, 0.48600053787231445, 0.4830012321472168, 0.466998815536499, 0.480454683303833, 0.47300052642822266, 0.5068612098693848, 0.45001673698425293, 0.4679999351501465, 0.45499730110168457, 0.45700573921203613, 0.44899678230285645, 0.46399974822998047, 0.4640007019042969, 0.4739995002746582, 0.46900033950805664]

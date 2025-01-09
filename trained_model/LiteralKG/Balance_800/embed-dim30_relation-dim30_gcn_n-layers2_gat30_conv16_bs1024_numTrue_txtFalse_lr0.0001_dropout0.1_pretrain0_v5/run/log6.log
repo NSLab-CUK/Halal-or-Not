@@ -1,0 +1,56 @@
+2025-01-09 21:59:36,737 - root - INFO - Namespace(aggregation_type='gcn', alpha=0.1, conv_dim=16, conv_dim_list='[32, 32, 32, 32, 32, 32, 32, 32, 32]', data_dir='data/', data_name='Balance_800', device='cuda:0', embed_dim=30, epoch_data_rate=1, evaluate_every=1, evaluation_file='outputs/evaluation.xlsx', evaluation_row=0, exp_name='run', fine_tuning_batch_size=1024, fine_tuning_l2loss_lambda=1e-05, fine_tuning_neg_rate=3, fine_tuning_print_every=500, kg_l2loss_lambda=1e-05, kg_print_every=500, lamda=0.5, laplacian_type='random-walk', lr=0.0001, mess_dropout=0.1, mess_dropout_list='[0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]', milestone_score=0.5, mlp_hidden_dim=64, n_conv_layers=2, n_epoch=100, n_mlp_layers=2, num_lit_dim=6, pre_training_batch_size=1024, pre_training_neg_rate=3, prediction_dict_file='disease_dict.pickle', pretrain_embedding_dir='data/pretrain/', pretrain_epoch=482, pretrain_model='pre-training_model_epoch', pretrain_model_path='trained_model/LiteralKG/Balance_800/embed-dim30_relation-dim30_gcn_n-layers2_gat30_conv16_bs1024_numTrue_txtFalse_lr0.0001_dropout0.1_pretrain0_v5/run/pre-training_model_epoch482.pt', relation_dim=30, save_dir='trained_model/LiteralKG/Balance_800/embed-dim30_relation-dim30_gcn_n-layers2_gat30_conv16_bs1024_numTrue_txtFalse_lr0.0001_dropout0.1_pretrain0_v5/run/', scale_gat_dim=30, seed=2022, stopping_steps=100, test_batch_size=2048, test_neg_rate=1, total_ent=1000, total_rel=100, train_data_rate=0.8, txt_lit_dim=30, use_num_lit=True, use_parallel_gpu=False, use_pretrain=1, use_residual=False, use_txt_lit=False)
+2025-01-09 21:59:47,585 - root - INFO - Total training heads:           124494
+2025-01-09 21:59:47,586 - root - INFO - Total training tails:           124974
+2025-01-09 21:59:47,586 - root - INFO - Total entities:        124974
+2025-01-09 21:59:47,586 - root - INFO - n_relations:       7
+2025-01-09 21:59:47,586 - root - INFO - n_h_list:          144315
+2025-01-09 21:59:47,586 - root - INFO - n_t_list:          144315
+2025-01-09 21:59:47,587 - root - INFO - n_r_list:          144315
+2025-01-09 21:59:47,587 - root - INFO - n_prediction_training:        703
+2025-01-09 21:59:47,587 - root - INFO - n_prediction_train:        562
+2025-01-09 21:59:47,587 - root - INFO - n_prediction_validate:        141
+2025-01-09 21:59:47,587 - root - INFO - n_prediction_testing:         2366
+2025-01-09 21:59:47,587 - root - INFO - n_pre_training:        144315
+2025-01-09 21:59:47,728 - root - INFO - LiteralKG(
+  (entity_embed): Embedding(124974, 30)
+  (relation_embed): Embedding(8, 30)
+  (linear_gat): Linear(in_features=62, out_features=30, bias=True)
+  (gat_activation): LeakyReLU(negative_slope=0.01)
+  (aggregator_layers): ModuleList(
+    (0): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (activation): LeakyReLU(negative_slope=0.01)
+      (layer_normalize): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (linear): Linear(in_features=30, out_features=16, bias=True)
+    )
+    (1): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (activation): LeakyReLU(negative_slope=0.01)
+      (layer_normalize): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (linear): Linear(in_features=16, out_features=16, bias=True)
+    )
+  )
+  (emb_num_lit): Gate(
+    (g): Linear(in_features=36, out_features=30, bias=True)
+    (gate_ent): Linear(in_features=30, out_features=30, bias=False)
+    (gate_lit): Linear(in_features=6, out_features=30, bias=False)
+  )
+  (fc1): Linear(in_features=60, out_features=32, bias=True)
+  (norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc2): Linear(in_features=32, out_features=16, bias=True)
+  (norm2): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc3): Linear(in_features=16, out_features=1, bias=True)
+)
+2025-01-09 21:59:47,730 - root - INFO - ----- USE PRE-TRAINING MODEL -----
+2025-01-09 21:59:47,742 - root - INFO - -----Fine-turning model-----
+2025-01-09 21:59:48,315 - root - INFO - Fine Tuning Training: Epoch 0001/0100 Total Iter 0005 | Total Time 0.6s | Iter Mean Loss 0.6706
+2025-01-09 21:59:48,387 - root - INFO - Fine Tuning Evaluation: Epoch 0001 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:59:48,582 - root - INFO - Fine Tuning Training: Epoch 0002/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6841
+2025-01-09 21:59:48,652 - root - INFO - Fine Tuning Evaluation: Epoch 0002 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:59:48,830 - root - INFO - Fine Tuning Training: Epoch 0003/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.7068
+2025-01-09 21:59:48,900 - root - INFO - Fine Tuning Evaluation: Epoch 0003 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:59:49,080 - root - INFO - Fine Tuning Training: Epoch 0004/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6599
+2025-01-09 21:59:49,148 - root - INFO - Fine Tuning Evaluation: Epoch 0004 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:59:49,327 - root - INFO - Fine Tuning Training: Epoch 0005/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6693
+2025-01-09 21:59:49,396 - root - INFO - Fine Tuning Evaluation: Epoch 0005 | Total Time 0.1s | Accuracy [0.5007], Precision [1.0000], Recall [0.0014], F1 [0.0028]
+2025-01-09 21:59:49,593 - root - INFO - Fine Tuning Training: Epoch 0006/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6696

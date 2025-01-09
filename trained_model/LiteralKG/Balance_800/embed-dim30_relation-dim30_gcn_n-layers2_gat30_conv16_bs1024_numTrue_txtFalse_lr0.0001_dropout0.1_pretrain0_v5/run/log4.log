@@ -1,0 +1,247 @@
+2025-01-09 21:50:25,344 - root - INFO - Namespace(aggregation_type='gcn', alpha=0.1, conv_dim=16, conv_dim_list='[32, 32, 32, 32, 32, 32, 32, 32, 32]', data_dir='data/', data_name='Balance_800', device='cuda:0', embed_dim=30, epoch_data_rate=1, evaluate_every=1, evaluation_file='outputs/evaluation.xlsx', evaluation_row=0, exp_name='run', fine_tuning_batch_size=1024, fine_tuning_l2loss_lambda=1e-05, fine_tuning_neg_rate=3, fine_tuning_print_every=500, kg_l2loss_lambda=1e-05, kg_print_every=500, lamda=0.5, laplacian_type='random-walk', lr=0.0001, mess_dropout=0.1, mess_dropout_list='[0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05]', milestone_score=0.5, mlp_hidden_dim=64, n_conv_layers=2, n_epoch=100, n_mlp_layers=2, num_lit_dim=6, pre_training_batch_size=1024, pre_training_neg_rate=3, prediction_dict_file='disease_dict.pickle', pretrain_embedding_dir='data/pretrain/', pretrain_epoch=473, pretrain_model='pre-training_model_epoch', pretrain_model_path='trained_model/LiteralKG/Balance_800/embed-dim30_relation-dim30_gcn_n-layers2_gat30_conv16_bs1024_numTrue_txtFalse_lr0.0001_dropout0.1_pretrain0_v5/run/pre-training_model_epoch473.pt', relation_dim=30, save_dir='trained_model/LiteralKG/Balance_800/embed-dim30_relation-dim30_gcn_n-layers2_gat30_conv16_bs1024_numTrue_txtFalse_lr0.0001_dropout0.1_pretrain0_v5/run/', scale_gat_dim=30, seed=2022, stopping_steps=100, test_batch_size=2048, test_neg_rate=1, total_ent=1000, total_rel=100, train_data_rate=0.8, txt_lit_dim=30, use_num_lit=True, use_parallel_gpu=False, use_pretrain=1, use_residual=False, use_txt_lit=False)
+2025-01-09 21:50:40,681 - root - INFO - Total training heads:           124494
+2025-01-09 21:50:40,681 - root - INFO - Total training tails:           124974
+2025-01-09 21:50:40,681 - root - INFO - Total entities:        124974
+2025-01-09 21:50:40,681 - root - INFO - n_relations:       7
+2025-01-09 21:50:40,682 - root - INFO - n_h_list:          144315
+2025-01-09 21:50:40,682 - root - INFO - n_t_list:          144315
+2025-01-09 21:50:40,682 - root - INFO - n_r_list:          144315
+2025-01-09 21:50:40,682 - root - INFO - n_prediction_training:        703
+2025-01-09 21:50:40,682 - root - INFO - n_prediction_train:        562
+2025-01-09 21:50:40,683 - root - INFO - n_prediction_validate:        141
+2025-01-09 21:50:40,683 - root - INFO - n_prediction_testing:         2366
+2025-01-09 21:50:40,683 - root - INFO - n_pre_training:        144315
+2025-01-09 21:50:40,880 - root - INFO - LiteralKG(
+  (entity_embed): Embedding(124974, 30)
+  (relation_embed): Embedding(8, 30)
+  (linear_gat): Linear(in_features=62, out_features=30, bias=True)
+  (gat_activation): LeakyReLU(negative_slope=0.01)
+  (aggregator_layers): ModuleList(
+    (0): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (activation): LeakyReLU(negative_slope=0.01)
+      (layer_normalize): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (linear): Linear(in_features=30, out_features=16, bias=True)
+    )
+    (1): Aggregator(
+      (message_dropout): Dropout(p=0.1, inplace=False)
+      (activation): LeakyReLU(negative_slope=0.01)
+      (layer_normalize): LayerNorm((16,), eps=1e-05, elementwise_affine=True)
+      (linear): Linear(in_features=16, out_features=16, bias=True)
+    )
+  )
+  (emb_num_lit): Gate(
+    (g): Linear(in_features=36, out_features=30, bias=True)
+    (gate_ent): Linear(in_features=30, out_features=30, bias=False)
+    (gate_lit): Linear(in_features=6, out_features=30, bias=False)
+  )
+  (fc1): Linear(in_features=60, out_features=32, bias=True)
+  (norm1): BatchNorm1d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc2): Linear(in_features=32, out_features=16, bias=True)
+  (norm2): BatchNorm1d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (fc3): Linear(in_features=16, out_features=1, bias=True)
+)
+2025-01-09 21:50:40,883 - root - INFO - ----- USE PRE-TRAINING MODEL -----
+2025-01-09 21:50:40,895 - root - INFO - -----Fine-turning model-----
+2025-01-09 21:50:41,348 - root - INFO - Fine Tuning Training: Epoch 0001/0100 Total Iter 0005 | Total Time 0.4s | Iter Mean Loss 0.6754
+2025-01-09 21:50:41,432 - root - INFO - Fine Tuning Evaluation: Epoch 0001 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:50:41,663 - root - INFO - Fine Tuning Training: Epoch 0002/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6722
+2025-01-09 21:50:41,743 - root - INFO - Fine Tuning Evaluation: Epoch 0002 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:50:41,987 - root - INFO - Fine Tuning Training: Epoch 0003/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6946
+2025-01-09 21:50:42,067 - root - INFO - Fine Tuning Evaluation: Epoch 0003 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:50:42,292 - root - INFO - Fine Tuning Training: Epoch 0004/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6432
+2025-01-09 21:50:42,394 - root - INFO - Fine Tuning Evaluation: Epoch 0004 | Total Time 0.1s | Accuracy [0.5000], Precision [0.0000], Recall [0.0000], F1 [0.0000]
+2025-01-09 21:50:42,632 - root - INFO - Fine Tuning Training: Epoch 0005/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6408
+2025-01-09 21:50:42,711 - root - INFO - Fine Tuning Evaluation: Epoch 0005 | Total Time 0.1s | Accuracy [0.5114], Precision [0.9444], Recall [0.0242], F1 [0.0472]
+2025-01-09 21:50:42,963 - root - INFO - Fine Tuning Training: Epoch 0006/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6645
+2025-01-09 21:50:43,038 - root - INFO - Fine Tuning Evaluation: Epoch 0006 | Total Time 0.1s | Accuracy [0.6558], Precision [0.8454], Recall [0.3812], F1 [0.5255]
+2025-01-09 21:50:43,260 - root - INFO - Fine Tuning Training: Epoch 0007/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6552
+2025-01-09 21:50:43,331 - root - INFO - Fine Tuning Evaluation: Epoch 0007 | Total Time 0.1s | Accuracy [0.7617], Precision [0.8420], Recall [0.6444], F1 [0.7301]
+2025-01-09 21:50:43,559 - root - INFO - Fine Tuning Training: Epoch 0008/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6326
+2025-01-09 21:50:43,636 - root - INFO - Fine Tuning Evaluation: Epoch 0008 | Total Time 0.1s | Accuracy [0.7994], Precision [0.8514], Recall [0.7255], F1 [0.7834]
+2025-01-09 21:50:43,860 - root - INFO - Fine Tuning Training: Epoch 0009/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6897
+2025-01-09 21:50:43,938 - root - INFO - Fine Tuning Evaluation: Epoch 0009 | Total Time 0.1s | Accuracy [0.7923], Precision [0.8419], Recall [0.7198], F1 [0.7761]
+2025-01-09 21:50:44,155 - root - INFO - Fine Tuning Training: Epoch 0010/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6158
+2025-01-09 21:50:44,224 - root - INFO - Fine Tuning Evaluation: Epoch 0010 | Total Time 0.1s | Accuracy [0.8094], Precision [0.8436], Recall [0.7596], F1 [0.7994]
+2025-01-09 21:50:44,448 - root - INFO - Fine Tuning Training: Epoch 0011/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5981
+2025-01-09 21:50:44,535 - root - INFO - Fine Tuning Evaluation: Epoch 0011 | Total Time 0.1s | Accuracy [0.8272], Precision [0.8495], Recall [0.7952], F1 [0.8215]
+2025-01-09 21:50:44,766 - root - INFO - Fine Tuning Training: Epoch 0012/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5912
+2025-01-09 21:50:44,834 - root - INFO - Fine Tuning Evaluation: Epoch 0012 | Total Time 0.1s | Accuracy [0.8478], Precision [0.8601], Recall [0.8307], F1 [0.8452]
+2025-01-09 21:50:45,059 - root - INFO - Fine Tuning Training: Epoch 0013/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6076
+2025-01-09 21:50:45,135 - root - INFO - Fine Tuning Evaluation: Epoch 0013 | Total Time 0.1s | Accuracy [0.8499], Precision [0.8639], Recall [0.8307], F1 [0.8470]
+2025-01-09 21:50:45,360 - root - INFO - Fine Tuning Training: Epoch 0014/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5761
+2025-01-09 21:50:45,430 - root - INFO - Fine Tuning Evaluation: Epoch 0014 | Total Time 0.1s | Accuracy [0.8656], Precision [0.8693], Recall [0.8606], F1 [0.8649]
+2025-01-09 21:50:45,665 - root - INFO - Fine Tuning Training: Epoch 0015/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.6008
+2025-01-09 21:50:45,737 - root - INFO - Fine Tuning Evaluation: Epoch 0015 | Total Time 0.1s | Accuracy [0.8720], Precision [0.8709], Recall [0.8734], F1 [0.8722]
+2025-01-09 21:50:45,964 - root - INFO - Fine Tuning Training: Epoch 0016/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5664
+2025-01-09 21:50:46,046 - root - INFO - Fine Tuning Evaluation: Epoch 0016 | Total Time 0.1s | Accuracy [0.8741], Precision [0.8694], Recall [0.8805], F1 [0.8749]
+2025-01-09 21:50:46,290 - root - INFO - Fine Tuning Training: Epoch 0017/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5683
+2025-01-09 21:50:46,359 - root - INFO - Fine Tuning Evaluation: Epoch 0017 | Total Time 0.1s | Accuracy [0.8762], Precision [0.8741], Recall [0.8791], F1 [0.8766]
+2025-01-09 21:50:46,591 - root - INFO - Fine Tuning Training: Epoch 0018/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5859
+2025-01-09 21:50:46,682 - root - INFO - Fine Tuning Evaluation: Epoch 0018 | Total Time 0.1s | Accuracy [0.8762], Precision [0.8752], Recall [0.8777], F1 [0.8764]
+2025-01-09 21:50:46,907 - root - INFO - Fine Tuning Training: Epoch 0019/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5538
+2025-01-09 21:50:46,975 - root - INFO - Fine Tuning Evaluation: Epoch 0019 | Total Time 0.1s | Accuracy [0.8762], Precision [0.8752], Recall [0.8777], F1 [0.8764]
+2025-01-09 21:50:47,196 - root - INFO - Fine Tuning Training: Epoch 0020/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5800
+2025-01-09 21:50:47,286 - root - INFO - Fine Tuning Evaluation: Epoch 0020 | Total Time 0.1s | Accuracy [0.8748], Precision [0.8759], Recall [0.8734], F1 [0.8746]
+2025-01-09 21:50:47,507 - root - INFO - Fine Tuning Training: Epoch 0021/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5557
+2025-01-09 21:50:47,578 - root - INFO - Fine Tuning Evaluation: Epoch 0021 | Total Time 0.1s | Accuracy [0.8791], Precision [0.8802], Recall [0.8777], F1 [0.8789]
+2025-01-09 21:50:47,805 - root - INFO - Fine Tuning Training: Epoch 0022/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5659
+2025-01-09 21:50:47,879 - root - INFO - Fine Tuning Evaluation: Epoch 0022 | Total Time 0.1s | Accuracy [0.8819], Precision [0.8798], Recall [0.8848], F1 [0.8823]
+2025-01-09 21:50:48,104 - root - INFO - Fine Tuning Training: Epoch 0023/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5425
+2025-01-09 21:50:48,185 - root - INFO - Fine Tuning Evaluation: Epoch 0023 | Total Time 0.1s | Accuracy [0.8812], Precision [0.8775], Recall [0.8862], F1 [0.8818]
+2025-01-09 21:50:48,416 - root - INFO - Fine Tuning Training: Epoch 0024/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5646
+2025-01-09 21:50:48,486 - root - INFO - Fine Tuning Evaluation: Epoch 0024 | Total Time 0.1s | Accuracy [0.8862], Precision [0.8840], Recall [0.8890], F1 [0.8865]
+2025-01-09 21:50:48,714 - root - INFO - Fine Tuning Training: Epoch 0025/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5437
+2025-01-09 21:50:48,797 - root - INFO - Fine Tuning Evaluation: Epoch 0025 | Total Time 0.1s | Accuracy [0.8848], Precision [0.8805], Recall [0.8905], F1 [0.8854]
+2025-01-09 21:50:49,015 - root - INFO - Fine Tuning Training: Epoch 0026/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5418
+2025-01-09 21:50:49,087 - root - INFO - Fine Tuning Evaluation: Epoch 0026 | Total Time 0.1s | Accuracy [0.8848], Precision [0.8805], Recall [0.8905], F1 [0.8854]
+2025-01-09 21:50:49,310 - root - INFO - Fine Tuning Training: Epoch 0027/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5460
+2025-01-09 21:50:49,404 - root - INFO - Fine Tuning Evaluation: Epoch 0027 | Total Time 0.1s | Accuracy [0.8848], Precision [0.8815], Recall [0.8890], F1 [0.8853]
+2025-01-09 21:50:49,619 - root - INFO - Fine Tuning Training: Epoch 0028/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5304
+2025-01-09 21:50:49,688 - root - INFO - Fine Tuning Evaluation: Epoch 0028 | Total Time 0.1s | Accuracy [0.8869], Precision [0.8820], Recall [0.8933], F1 [0.8876]
+2025-01-09 21:50:49,920 - root - INFO - Fine Tuning Training: Epoch 0029/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5255
+2025-01-09 21:50:49,996 - root - INFO - Fine Tuning Evaluation: Epoch 0029 | Total Time 0.1s | Accuracy [0.8912], Precision [0.8862], Recall [0.8976], F1 [0.8919]
+2025-01-09 21:50:50,223 - root - INFO - Fine Tuning Training: Epoch 0030/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5150
+2025-01-09 21:50:50,297 - root - INFO - Fine Tuning Evaluation: Epoch 0030 | Total Time 0.1s | Accuracy [0.8969], Precision [0.8930], Recall [0.9018], F1 [0.8974]
+2025-01-09 21:50:50,526 - root - INFO - Fine Tuning Training: Epoch 0031/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5186
+2025-01-09 21:50:50,594 - root - INFO - Fine Tuning Evaluation: Epoch 0031 | Total Time 0.1s | Accuracy [0.8962], Precision [0.8928], Recall [0.9004], F1 [0.8966]
+2025-01-09 21:50:50,800 - root - INFO - Fine Tuning Training: Epoch 0032/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5077
+2025-01-09 21:50:50,895 - root - INFO - Fine Tuning Evaluation: Epoch 0032 | Total Time 0.1s | Accuracy [0.9004], Precision [0.8959], Recall [0.9061], F1 [0.9010]
+2025-01-09 21:50:51,117 - root - INFO - Fine Tuning Training: Epoch 0033/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5089
+2025-01-09 21:50:51,184 - root - INFO - Fine Tuning Evaluation: Epoch 0033 | Total Time 0.1s | Accuracy [0.8983], Precision [0.8933], Recall [0.9047], F1 [0.8989]
+2025-01-09 21:50:51,410 - root - INFO - Fine Tuning Training: Epoch 0034/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5213
+2025-01-09 21:50:51,482 - root - INFO - Fine Tuning Evaluation: Epoch 0034 | Total Time 0.1s | Accuracy [0.9004], Precision [0.8948], Recall [0.9075], F1 [0.9011]
+2025-01-09 21:50:51,701 - root - INFO - Fine Tuning Training: Epoch 0035/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.5165
+2025-01-09 21:50:51,771 - root - INFO - Fine Tuning Evaluation: Epoch 0035 | Total Time 0.1s | Accuracy [0.9004], Precision [0.8982], Recall [0.9033], F1 [0.9007]
+2025-01-09 21:50:52,001 - root - INFO - Fine Tuning Training: Epoch 0036/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4879
+2025-01-09 21:50:52,076 - root - INFO - Fine Tuning Evaluation: Epoch 0036 | Total Time 0.1s | Accuracy [0.8962], Precision [0.8950], Recall [0.8976], F1 [0.8963]
+2025-01-09 21:50:52,293 - root - INFO - Fine Tuning Training: Epoch 0037/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4910
+2025-01-09 21:50:52,374 - root - INFO - Fine Tuning Evaluation: Epoch 0037 | Total Time 0.1s | Accuracy [0.8947], Precision [0.8936], Recall [0.8962], F1 [0.8949]
+2025-01-09 21:50:52,605 - root - INFO - Fine Tuning Training: Epoch 0038/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4886
+2025-01-09 21:50:52,675 - root - INFO - Fine Tuning Evaluation: Epoch 0038 | Total Time 0.1s | Accuracy [0.8954], Precision [0.8949], Recall [0.8962], F1 [0.8955]
+2025-01-09 21:50:52,899 - root - INFO - Fine Tuning Training: Epoch 0039/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4794
+2025-01-09 21:50:52,996 - root - INFO - Fine Tuning Evaluation: Epoch 0039 | Total Time 0.1s | Accuracy [0.8969], Precision [0.8974], Recall [0.8962], F1 [0.8968]
+2025-01-09 21:50:53,247 - root - INFO - Fine Tuning Training: Epoch 0040/0100 Total Iter 0005 | Total Time 0.3s | Iter Mean Loss 0.4733
+2025-01-09 21:50:53,318 - root - INFO - Fine Tuning Evaluation: Epoch 0040 | Total Time 0.1s | Accuracy [0.9033], Precision [0.9044], Recall [0.9018], F1 [0.9031]
+2025-01-09 21:50:53,563 - root - INFO - Fine Tuning Training: Epoch 0041/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4957
+2025-01-09 21:50:53,650 - root - INFO - Fine Tuning Evaluation: Epoch 0041 | Total Time 0.1s | Accuracy [0.9061], Precision [0.9061], Recall [0.9061], F1 [0.9061]
+2025-01-09 21:50:53,890 - root - INFO - Fine Tuning Training: Epoch 0042/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4786
+2025-01-09 21:50:53,961 - root - INFO - Fine Tuning Evaluation: Epoch 0042 | Total Time 0.1s | Accuracy [0.9040], Precision [0.9011], Recall [0.9075], F1 [0.9043]
+2025-01-09 21:50:54,188 - root - INFO - Fine Tuning Training: Epoch 0043/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4713
+2025-01-09 21:50:54,270 - root - INFO - Fine Tuning Evaluation: Epoch 0043 | Total Time 0.1s | Accuracy [0.9061], Precision [0.9050], Recall [0.9075], F1 [0.9062]
+2025-01-09 21:50:54,494 - root - INFO - Fine Tuning Training: Epoch 0044/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4738
+2025-01-09 21:50:54,569 - root - INFO - Fine Tuning Evaluation: Epoch 0044 | Total Time 0.1s | Accuracy [0.9097], Precision [0.9079], Recall [0.9118], F1 [0.9099]
+2025-01-09 21:50:54,819 - root - INFO - Fine Tuning Training: Epoch 0045/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4645
+2025-01-09 21:50:54,889 - root - INFO - Fine Tuning Evaluation: Epoch 0045 | Total Time 0.1s | Accuracy [0.9083], Precision [0.9077], Recall [0.9090], F1 [0.9083]
+2025-01-09 21:50:55,107 - root - INFO - Fine Tuning Training: Epoch 0046/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4535
+2025-01-09 21:50:55,196 - root - INFO - Fine Tuning Evaluation: Epoch 0046 | Total Time 0.1s | Accuracy [0.9097], Precision [0.9079], Recall [0.9118], F1 [0.9099]
+2025-01-09 21:50:55,414 - root - INFO - Fine Tuning Training: Epoch 0047/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4514
+2025-01-09 21:50:55,483 - root - INFO - Fine Tuning Evaluation: Epoch 0047 | Total Time 0.1s | Accuracy [0.9111], Precision [0.9105], Recall [0.9118], F1 [0.9112]
+2025-01-09 21:50:55,729 - root - INFO - Fine Tuning Training: Epoch 0048/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4541
+2025-01-09 21:50:55,825 - root - INFO - Fine Tuning Evaluation: Epoch 0048 | Total Time 0.1s | Accuracy [0.9154], Precision [0.9113], Recall [0.9203], F1 [0.9158]
+2025-01-09 21:50:56,047 - root - INFO - Fine Tuning Training: Epoch 0049/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4493
+2025-01-09 21:50:56,115 - root - INFO - Fine Tuning Evaluation: Epoch 0049 | Total Time 0.1s | Accuracy [0.9175], Precision [0.9151], Recall [0.9203], F1 [0.9177]
+2025-01-09 21:50:56,345 - root - INFO - Fine Tuning Training: Epoch 0050/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4537
+2025-01-09 21:50:56,419 - root - INFO - Fine Tuning Evaluation: Epoch 0050 | Total Time 0.1s | Accuracy [0.9203], Precision [0.9191], Recall [0.9218], F1 [0.9205]
+2025-01-09 21:50:56,645 - root - INFO - Fine Tuning Training: Epoch 0051/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4482
+2025-01-09 21:50:56,730 - root - INFO - Fine Tuning Evaluation: Epoch 0051 | Total Time 0.1s | Accuracy [0.9246], Precision [0.9222], Recall [0.9275], F1 [0.9248]
+2025-01-09 21:50:56,961 - root - INFO - Fine Tuning Training: Epoch 0052/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4314
+2025-01-09 21:50:57,035 - root - INFO - Fine Tuning Evaluation: Epoch 0052 | Total Time 0.1s | Accuracy [0.9225], Precision [0.9207], Recall [0.9246], F1 [0.9226]
+2025-01-09 21:50:57,253 - root - INFO - Fine Tuning Training: Epoch 0053/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4409
+2025-01-09 21:50:57,327 - root - INFO - Fine Tuning Evaluation: Epoch 0053 | Total Time 0.1s | Accuracy [0.9225], Precision [0.9183], Recall [0.9275], F1 [0.9229]
+2025-01-09 21:50:57,541 - root - INFO - Fine Tuning Training: Epoch 0054/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4729
+2025-01-09 21:50:57,609 - root - INFO - Fine Tuning Evaluation: Epoch 0054 | Total Time 0.1s | Accuracy [0.9239], Precision [0.9197], Recall [0.9289], F1 [0.9243]
+2025-01-09 21:50:57,901 - root - INFO - Fine Tuning Training: Epoch 0055/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4211
+2025-01-09 21:50:57,974 - root - INFO - Fine Tuning Evaluation: Epoch 0055 | Total Time 0.1s | Accuracy [0.9282], Precision [0.9228], Recall [0.9346], F1 [0.9286]
+2025-01-09 21:50:58,213 - root - INFO - Fine Tuning Training: Epoch 0056/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4299
+2025-01-09 21:50:58,289 - root - INFO - Fine Tuning Evaluation: Epoch 0056 | Total Time 0.1s | Accuracy [0.9289], Precision [0.9205], Recall [0.9388], F1 [0.9296]
+2025-01-09 21:50:58,517 - root - INFO - Fine Tuning Training: Epoch 0057/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4331
+2025-01-09 21:50:58,586 - root - INFO - Fine Tuning Evaluation: Epoch 0057 | Total Time 0.1s | Accuracy [0.9346], Precision [0.9273], Recall [0.9431], F1 [0.9351]
+2025-01-09 21:50:58,821 - root - INFO - Fine Tuning Training: Epoch 0058/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4276
+2025-01-09 21:50:58,909 - root - INFO - Fine Tuning Evaluation: Epoch 0058 | Total Time 0.1s | Accuracy [0.9367], Precision [0.9312], Recall [0.9431], F1 [0.9371]
+2025-01-09 21:50:59,149 - root - INFO - Fine Tuning Training: Epoch 0059/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4132
+2025-01-09 21:50:59,218 - root - INFO - Fine Tuning Evaluation: Epoch 0059 | Total Time 0.1s | Accuracy [0.9367], Precision [0.9312], Recall [0.9431], F1 [0.9371]
+2025-01-09 21:50:59,441 - root - INFO - Fine Tuning Training: Epoch 0060/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4079
+2025-01-09 21:50:59,529 - root - INFO - Fine Tuning Evaluation: Epoch 0060 | Total Time 0.1s | Accuracy [0.9395], Precision [0.9316], Recall [0.9488], F1 [0.9401]
+2025-01-09 21:50:59,751 - root - INFO - Fine Tuning Training: Epoch 0061/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4183
+2025-01-09 21:50:59,821 - root - INFO - Fine Tuning Evaluation: Epoch 0061 | Total Time 0.1s | Accuracy [0.9431], Precision [0.9332], Recall [0.9545], F1 [0.9437]
+2025-01-09 21:51:00,049 - root - INFO - Fine Tuning Training: Epoch 0062/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4200
+2025-01-09 21:51:00,125 - root - INFO - Fine Tuning Evaluation: Epoch 0062 | Total Time 0.1s | Accuracy [0.9545], Precision [0.9532], Recall [0.9559], F1 [0.9545]
+2025-01-09 21:51:00,357 - root - INFO - Fine Tuning Training: Epoch 0063/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4079
+2025-01-09 21:51:00,447 - root - INFO - Fine Tuning Evaluation: Epoch 0063 | Total Time 0.1s | Accuracy [0.9467], Precision [0.9460], Recall [0.9474], F1 [0.9467]
+2025-01-09 21:51:00,671 - root - INFO - Fine Tuning Training: Epoch 0064/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4127
+2025-01-09 21:51:00,747 - root - INFO - Fine Tuning Evaluation: Epoch 0064 | Total Time 0.1s | Accuracy [0.9410], Precision [0.9391], Recall [0.9431], F1 [0.9411]
+2025-01-09 21:51:00,972 - root - INFO - Fine Tuning Training: Epoch 0065/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4610
+2025-01-09 21:51:01,060 - root - INFO - Fine Tuning Evaluation: Epoch 0065 | Total Time 0.1s | Accuracy [0.9481], Precision [0.9526], Recall [0.9431], F1 [0.9478]
+2025-01-09 21:51:01,277 - root - INFO - Fine Tuning Training: Epoch 0066/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4147
+2025-01-09 21:51:01,347 - root - INFO - Fine Tuning Evaluation: Epoch 0066 | Total Time 0.1s | Accuracy [0.9459], Precision [0.9485], Recall [0.9431], F1 [0.9458]
+2025-01-09 21:51:01,564 - root - INFO - Fine Tuning Training: Epoch 0067/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3914
+2025-01-09 21:51:01,651 - root - INFO - Fine Tuning Evaluation: Epoch 0067 | Total Time 0.1s | Accuracy [0.9474], Precision [0.9411], Recall [0.9545], F1 [0.9477]
+2025-01-09 21:51:01,898 - root - INFO - Fine Tuning Training: Epoch 0068/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3875
+2025-01-09 21:51:01,986 - root - INFO - Fine Tuning Evaluation: Epoch 0068 | Total Time 0.1s | Accuracy [0.9495], Precision [0.9413], Recall [0.9587], F1 [0.9500]
+2025-01-09 21:51:02,214 - root - INFO - Fine Tuning Training: Epoch 0069/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3981
+2025-01-09 21:51:02,292 - root - INFO - Fine Tuning Evaluation: Epoch 0069 | Total Time 0.1s | Accuracy [0.9495], Precision [0.9413], Recall [0.9587], F1 [0.9500]
+2025-01-09 21:51:02,497 - root - INFO - Fine Tuning Training: Epoch 0070/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.4040
+2025-01-09 21:51:02,569 - root - INFO - Fine Tuning Evaluation: Epoch 0070 | Total Time 0.1s | Accuracy [0.9573], Precision [0.9547], Recall [0.9602], F1 [0.9574]
+2025-01-09 21:51:02,808 - root - INFO - Fine Tuning Training: Epoch 0071/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3977
+2025-01-09 21:51:02,875 - root - INFO - Fine Tuning Evaluation: Epoch 0071 | Total Time 0.1s | Accuracy [0.9637], Precision [0.9553], Recall [0.9730], F1 [0.9641]
+2025-01-09 21:51:03,091 - root - INFO - Fine Tuning Training: Epoch 0072/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3908
+2025-01-09 21:51:03,172 - root - INFO - Fine Tuning Evaluation: Epoch 0072 | Total Time 0.1s | Accuracy [0.9673], Precision [0.9620], Recall [0.9730], F1 [0.9675]
+2025-01-09 21:51:03,398 - root - INFO - Fine Tuning Training: Epoch 0073/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3854
+2025-01-09 21:51:03,467 - root - INFO - Fine Tuning Evaluation: Epoch 0073 | Total Time 0.1s | Accuracy [0.9673], Precision [0.9607], Recall [0.9744], F1 [0.9675]
+2025-01-09 21:51:03,692 - root - INFO - Fine Tuning Training: Epoch 0074/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3805
+2025-01-09 21:51:03,768 - root - INFO - Fine Tuning Evaluation: Epoch 0074 | Total Time 0.1s | Accuracy [0.9687], Precision [0.9634], Recall [0.9744], F1 [0.9689]
+2025-01-09 21:51:03,995 - root - INFO - Fine Tuning Training: Epoch 0075/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3743
+2025-01-09 21:51:04,063 - root - INFO - Fine Tuning Evaluation: Epoch 0075 | Total Time 0.1s | Accuracy [0.9708], Precision [0.9675], Recall [0.9744], F1 [0.9709]
+2025-01-09 21:51:04,294 - root - INFO - Fine Tuning Training: Epoch 0076/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3815
+2025-01-09 21:51:04,363 - root - INFO - Fine Tuning Evaluation: Epoch 0076 | Total Time 0.1s | Accuracy [0.9737], Precision [0.9703], Recall [0.9772], F1 [0.9738]
+2025-01-09 21:51:04,584 - root - INFO - Fine Tuning Training: Epoch 0077/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3809
+2025-01-09 21:51:04,662 - root - INFO - Fine Tuning Evaluation: Epoch 0077 | Total Time 0.1s | Accuracy [0.9744], Precision [0.9704], Recall [0.9787], F1 [0.9745]
+2025-01-09 21:51:04,893 - root - INFO - Fine Tuning Training: Epoch 0078/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3806
+2025-01-09 21:51:04,971 - root - INFO - Fine Tuning Evaluation: Epoch 0078 | Total Time 0.1s | Accuracy [0.9765], Precision [0.9705], Recall [0.9829], F1 [0.9767]
+2025-01-09 21:51:05,205 - root - INFO - Fine Tuning Training: Epoch 0079/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3674
+2025-01-09 21:51:05,292 - root - INFO - Fine Tuning Evaluation: Epoch 0079 | Total Time 0.1s | Accuracy [0.9794], Precision [0.9746], Recall [0.9844], F1 [0.9795]
+2025-01-09 21:51:05,520 - root - INFO - Fine Tuning Training: Epoch 0080/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3661
+2025-01-09 21:51:05,592 - root - INFO - Fine Tuning Evaluation: Epoch 0080 | Total Time 0.1s | Accuracy [0.9836], Precision [0.9749], Recall [0.9929], F1 [0.9838]
+2025-01-09 21:51:05,835 - root - INFO - Fine Tuning Training: Epoch 0081/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3666
+2025-01-09 21:51:05,909 - root - INFO - Fine Tuning Evaluation: Epoch 0081 | Total Time 0.1s | Accuracy [0.9851], Precision [0.9763], Recall [0.9943], F1 [0.9852]
+2025-01-09 21:51:06,140 - root - INFO - Fine Tuning Training: Epoch 0082/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3618
+2025-01-09 21:51:06,225 - root - INFO - Fine Tuning Evaluation: Epoch 0082 | Total Time 0.1s | Accuracy [0.9836], Precision [0.9735], Recall [0.9943], F1 [0.9838]
+2025-01-09 21:51:06,460 - root - INFO - Fine Tuning Training: Epoch 0083/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3620
+2025-01-09 21:51:06,529 - root - INFO - Fine Tuning Evaluation: Epoch 0083 | Total Time 0.1s | Accuracy [0.9872], Precision [0.9790], Recall [0.9957], F1 [0.9873]
+2025-01-09 21:51:06,796 - root - INFO - Fine Tuning Training: Epoch 0084/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3728
+2025-01-09 21:51:06,877 - root - INFO - Fine Tuning Evaluation: Epoch 0084 | Total Time 0.1s | Accuracy [0.9943], Precision [0.9929], Recall [0.9957], F1 [0.9943]
+2025-01-09 21:51:07,120 - root - INFO - Fine Tuning Training: Epoch 0085/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3922
+2025-01-09 21:51:07,190 - root - INFO - Fine Tuning Evaluation: Epoch 0085 | Total Time 0.1s | Accuracy [0.9950], Precision [0.9943], Recall [0.9957], F1 [0.9950]
+2025-01-09 21:51:07,421 - root - INFO - Fine Tuning Training: Epoch 0086/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3614
+2025-01-09 21:51:07,512 - root - INFO - Fine Tuning Evaluation: Epoch 0086 | Total Time 0.1s | Accuracy [0.9936], Precision [0.9901], Recall [0.9972], F1 [0.9936]
+2025-01-09 21:51:07,758 - root - INFO - Fine Tuning Training: Epoch 0087/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3651
+2025-01-09 21:51:07,832 - root - INFO - Fine Tuning Evaluation: Epoch 0087 | Total Time 0.1s | Accuracy [0.9908], Precision [0.9859], Recall [0.9957], F1 [0.9908]
+2025-01-09 21:51:08,074 - root - INFO - Fine Tuning Training: Epoch 0088/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3945
+2025-01-09 21:51:08,145 - root - INFO - Fine Tuning Evaluation: Epoch 0088 | Total Time 0.1s | Accuracy [0.9957], Precision [0.9957], Recall [0.9957], F1 [0.9957]
+2025-01-09 21:51:08,380 - root - INFO - Fine Tuning Training: Epoch 0089/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3543
+2025-01-09 21:51:08,460 - root - INFO - Fine Tuning Evaluation: Epoch 0089 | Total Time 0.1s | Accuracy [0.9957], Precision [0.9957], Recall [0.9957], F1 [0.9957]
+2025-01-09 21:51:08,694 - root - INFO - Fine Tuning Training: Epoch 0090/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3520
+2025-01-09 21:51:08,766 - root - INFO - Fine Tuning Evaluation: Epoch 0090 | Total Time 0.1s | Accuracy [0.9957], Precision [0.9957], Recall [0.9957], F1 [0.9957]
+2025-01-09 21:51:08,997 - root - INFO - Fine Tuning Training: Epoch 0091/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3509
+2025-01-09 21:51:09,089 - root - INFO - Fine Tuning Evaluation: Epoch 0091 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:09,329 - root - INFO - Fine Tuning Training: Epoch 0092/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3490
+2025-01-09 21:51:09,406 - root - INFO - Fine Tuning Evaluation: Epoch 0092 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:09,648 - root - INFO - Fine Tuning Training: Epoch 0093/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3631
+2025-01-09 21:51:09,739 - root - INFO - Fine Tuning Evaluation: Epoch 0093 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:09,979 - root - INFO - Fine Tuning Training: Epoch 0094/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3498
+2025-01-09 21:51:10,054 - root - INFO - Fine Tuning Evaluation: Epoch 0094 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:10,300 - root - INFO - Fine Tuning Training: Epoch 0095/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3546
+2025-01-09 21:51:10,370 - root - INFO - Fine Tuning Evaluation: Epoch 0095 | Total Time 0.1s | Accuracy [0.9972], Precision [0.9972], Recall [0.9972], F1 [0.9972]
+2025-01-09 21:51:10,607 - root - INFO - Fine Tuning Training: Epoch 0096/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3432
+2025-01-09 21:51:10,683 - root - INFO - Fine Tuning Evaluation: Epoch 0096 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:10,927 - root - INFO - Fine Tuning Training: Epoch 0097/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3433
+2025-01-09 21:51:11,004 - root - INFO - Fine Tuning Evaluation: Epoch 0097 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:11,227 - root - INFO - Fine Tuning Training: Epoch 0098/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3404
+2025-01-09 21:51:11,306 - root - INFO - Fine Tuning Evaluation: Epoch 0098 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:11,528 - root - INFO - Fine Tuning Training: Epoch 0099/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3336
+2025-01-09 21:51:11,605 - root - INFO - Fine Tuning Evaluation: Epoch 0099 | Total Time 0.1s | Accuracy [0.9964], Precision [0.9957], Recall [0.9972], F1 [0.9964]
+2025-01-09 21:51:11,841 - root - INFO - Fine Tuning Training: Epoch 0100/0100 Total Iter 0005 | Total Time 0.2s | Iter Mean Loss 0.3451
+2025-01-09 21:51:11,930 - root - INFO - Fine Tuning Evaluation: Epoch 0100 | Total Time 0.1s | Accuracy [0.9972], Precision [0.9972], Recall [0.9972], F1 [0.9972]
+2025-01-09 21:51:11,935 - root - INFO - Best Prediction Layer Evaluation: Epoch 0095 | Accuracy [0.9972], Precision [0.9972], Recall [0.9972], F1_Score [0.9972]
+2025-01-09 21:51:12,009 - root - INFO - FINALLY -------

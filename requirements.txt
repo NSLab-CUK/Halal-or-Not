@@ -1,0 +1,11 @@
+torch
+numpy
+pandas
+scipy
+tqdm
+scikit-learn
+matplotlib
+torchvision
+torch-geometric
+openpyxl
+tensorboard
