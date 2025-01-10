@@ -9,13 +9,13 @@ Halal or Not is a novel Attributed Knowledge Graph Completion Model developed by
   <a href="https://github.com/pytorch/pytorch">
     <img src="https://img.shields.io/badge/PyTorch->=1.4-FF6F00?logo=pytorch&style=flat-square" alt="pytorch">
   </a>       
-  <img src="https://custom-icon-badges.demolab.com/github/last-commit/NSLab-CUK/LiteralKG?logo=history&logoColor=white&style=flat-square"/>
-  <img src="https://custom-icon-badges.demolab.com/github/languages/code-size/NSLab-CUK/LiteralKG?logo=file-code&logoColor=white&style=flat-square"/>
-  <img src="https://custom-icon-badges.demolab.com/github/issues-pr-closed/NSLab-CUK/LiteralKG?color=purple&logo=git-pull-request&logoColor=white&style=flat-square"/>
-  <img src="https://custom-icon-badges.demolab.com/github/v/tag/NSLab-CUK/LiteralKG?logo=tag&logoColor=white&style=flat-square"/>
-  <img src="https://custom-icon-badges.demolab.com/github/stars/NSLab-CUK/LiteralKG?logo=star&style=flat-square"/>
-  <img src="https://custom-icon-badges.demolab.com/github/issues-raw/NSLab-CUK/LiteralKG?logo=issue&style=flat-square"/>
-  <img src="https://custom-icon-badges.demolab.com/github/license/NSLab-CUK/LiteralKG?logo=law&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/last-commit/NSLab-CUK/Halal-or-Not?logo=history&logoColor=white&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/languages/code-size/NSLab-CUK/Halal-or-Not?logo=file-code&logoColor=white&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/issues-pr-closed/NSLab-CUK/Halal-or-Not?color=purple&logo=git-pull-request&logoColor=white&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/v/tag/NSLab-CUK/Halal-or-Not?logo=tag&logoColor=white&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/stars/NSLab-CUK/Halal-or-Not?logo=star&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/issues-raw/NSLab-CUK/Halal-or-Not?logo=issue&style=flat-square"/>
+  <img src="https://custom-icon-badges.demolab.com/github/license/NSLab-CUK/Halal-or-Not?logo=law&style=flat-square"/>
 </p>
 
 <be>
@@ -53,27 +53,26 @@ The growing demand for halal cosmetic products has exposed significant challenge
 ## 3. Reference
 
 :page_with_curl: Paper
-* [![DOI](http://img.shields.io/:DOI-10.1109/ACCESS.2023.3324046-blue?style=flat-square)](https://doi.org/10.1109/ACCESS.2023.3324046)
-* [![arXiv](https://img.shields.io/badge/arXiv-2309.03219-b31b1b?style=flat-square&logo=arxiv&logoColor=red)](https://arxiv.org/abs/2309.03219)
+* [![DOI](http://img.shields.io/:DOI-10.1109/ACCESS.2025.3528251-FAB70C?style=flat-square&logo=doi)](https://doi.org/10.1109/ACCESS.2025.3528251)
 
 :pencil: Blog [on Network Science Lab](https://nslab-cuk.github.io/2023/08/30/LiteralKG/)
-* [![Web](https://img.shields.io/badge/NS@CUK-Post-0C2E86?style=flat-square&logo=jekyll&logoColor=FFFFFF)](https://nslab-cuk.github.io/2023/08/30/LiteralKG/)
+* [![Web](https://img.shields.io/badge/NS@CUK-Post-0C2E86?style=flat-square&logo=jekyll&logoColor=FFFFFF)](https://nslab-cuk.github.io/2025/01/08/HaCKG/)
 
 
 ## 4. Citing HaCKG
 
-Please cite our [paper](https://ieeexplore.ieee.org/abstract/document/10283810) if you find *HaCKG* useful in your work:
+Please cite our [paper](https://doi.org/10.1109/ACCESS.2025.3528251) if you find *HaCKG* useful in your work:
 ```
 @Article{Hoang2023,
-  author  = {Van Thuy Hoang and Thanh Sang Nguyen and Sangmyeong Lee and Jooho Lee and Luong Vuong Nguyen and O-Joun Lee},
-  title   = {Companion Animal Disease Diagnostics Based on Literal-Aware Medical Knowledge Graph Representation Learning},
+  author  = {Van Thuy Hoang and Tien-Bach-Thanh Do and Jinho Seo and Seung Charlie Kim and Luong Vuong Nguyen and Duong Nguyen Minh Huy and Hyeon-Ju Jeon and O-Joun Lee},
+  title   = {Halal or Not: Knowledge Graph Completion for Predicting Cultural Appropriateness of Daily Products},
   journal = {IEEE Access},
-  year    = {2023},
-  volume  = {11},
-  pages   = {114238--114249},
-  month   = oct,
+  year    = {2025},
+  volume  = {},
+  pages   = {},
+  month   = jan,
   issn    = {2169-3536},
-  doi     = {10.1109/ACCESS.2023.3324046},
+  doi     = {10.1109/ACCESS.2025.3528251},
 }
 ```
 
@@ -82,3 +81,11 @@ Please cite our [paper](https://ieeexplore.ieee.org/abstract/document/10283810) 
 <a href="https://github.com/NSLab-CUK/Halal-or-Not/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=NSLab-CUK/Halal-or-Not" />
 </a>
+
+<br>
+
+***
+
+<a href="https://nslab-cuk.github.io/"><img src="https://github.com/NSLab-CUK/NSLab-CUK/raw/main/Logo_Dual_Wide.png"/></a>
+
+***
