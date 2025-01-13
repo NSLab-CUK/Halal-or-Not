@@ -56,7 +56,7 @@ The growing demand for halal cosmetic products has exposed significant challenge
 * [![DOI](http://img.shields.io/:DOI-10.1109/ACCESS.2025.3528251-FAB70C?style=flat-square&logo=doi)](https://doi.org/10.1109/ACCESS.2025.3528251)
 
 :page_with_curl: Paper [on arXiv](https://arxiv.org/): 
-* [![arXiv](https://img.shields.io/badge/arXiv-2501.05768-b31b1b?style=flat-square&logo=arxiv&logoColor=red)](https://arxiv.org/abs/2501.05768) 
+* [![arXiv](https://img.shields.io/badge/arXiv-2501.05768-b31b1b?style=flat-square&logo=arxiv&logoColor=red)](https://arxiv.org/abs/2412.15589) 
 
 :pencil: Blog [on Network Science Lab](https://nslab-cuk.github.io/2023/08/30/LiteralKG/)
 * [![Web](https://img.shields.io/badge/NS@CUK-Post-0C2E86?style=flat-square&logo=jekyll&logoColor=FFFFFF)](https://nslab-cuk.github.io/2025/01/08/HaCKG/)
